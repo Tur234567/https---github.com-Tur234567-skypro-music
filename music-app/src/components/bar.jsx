@@ -1,5 +1,15 @@
 import React from "react";
 import "./bar.css";
+import sprite from "./img/icon/sprite.svg";
+import prev from "./img/icon/prev.svg";
+import play from "./img/icon/play.svg";
+import next from "./img/icon/next.svg";
+import repeat from "./img/icon/repeat.svg";
+import shuffle from "./img/icon/shuffle.svg";
+import note from "./img/icon/note.svg";
+import like from "./img/icon/like.svg";
+import dislike from "./img/icon/dislike.svg";
+import volume from "./img/icon/volume.svg";
 
 function cntrBar() {
     return (
@@ -11,27 +21,27 @@ function cntrBar() {
                 <div className="player__controls">
                   <div className="player__btn-prev">
                     <svg className="player__btn-prev-svg" alt="prev">
-                      <use xlinkHref="img/icon/sprite.svg#icon-prev"></use>
+                      <use xlinkHref={`${sprite}#${prev}`}></use>
                     </svg>
                   </div>
                   <div className="player__btn-play _btn">
                     <svg className="player__btn-play-svg" alt="play">
-                      <use xlinkHref="img/icon/sprite.svg#icon-play"></use>
+                      <use xlinkHref={`${sprite}#${play}`}></use>
                     </svg>
                   </div>
                   <div className="player__btn-next">
                     <svg className="player__btn-next-svg" alt="next">
-                      <use xlinkHref="img/icon/sprite.svg#icon-next"></use>
+                      <use xlinkHref={`${sprite}#${next}`}></use>
                     </svg>
                   </div>
                   <div className="player__btn-repeat _btn-icon">
                     <svg className="player__btn-repeat-svg" alt="repeat">
-                      <use xlinkHref="img/icon/sprite.svg#icon-repeat"></use>
+                      <use xlinkHref={`${sprite}#${repeat}`}></use>
                     </svg>
                   </div>
                   <div className="player__btn-shuffle _btn-icon">
                     <svg className="player__btn-shuffle-svg" alt="shuffle">
-                      <use xlinkHref="img/icon/sprite.svg#icon-shuffle"></use>
+                      <use xlinkHref={`${sprite}#${shuffle}`}></use>
                     </svg>
                   </div>
                 </div>
@@ -40,7 +50,7 @@ function cntrBar() {
                   <div className="track-play__contain">
                     <div className="track-play__image">
                       <svg className="track-play__svg" alt="music">
-                        <use xlinkHref="img/icon/sprite.svg#icon-note"></use>
+                        <use xlinkHref={`${sprite}#${note}`}></use>
                       </svg>
                     </div>
                     <div className="track-play__author">
@@ -58,12 +68,12 @@ function cntrBar() {
                   <div className="track-play__like-dis">
                     <div className="track-play__like _btn-icon">
                       <svg className="track-play__like-svg" alt="like">
-                        <use xlinkHref="img/icon/sprite.svg#icon-like"></use>
+                        <use xlinkHref={`${sprite}#${like}`}></use>
                       </svg>
                     </div>
                     <div className="track-play__dislike _btn-icon">
                       <svg className="track-play__dislike-svg" alt="dislike">
-                        <use xlinkHref="img/icon/sprite.svg#icon-dislike"></use>
+                        <use xlinkHref={`${sprite}#${dislike}`}></use>
                       </svg>
                     </div>
                   </div>
@@ -73,7 +83,7 @@ function cntrBar() {
                 <div className="volume__content">
                   <div className="volume__image">
                     <svg className="volume__svg" alt="volume">
-                      <use xlinkHref="img/icon/sprite.svg#icon-volume"></use>
+                      <use xlinkHref={`${sprite}#${volume}`}></use>
                     </svg>
                   </div>
                   <div className="volume__progress _btn">
