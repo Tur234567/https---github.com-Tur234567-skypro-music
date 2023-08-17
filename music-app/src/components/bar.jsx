@@ -35,7 +35,6 @@ function cntrBar() {
                     </svg>
                   </div>
                 </div>
-
                 <div className="player__track-play track-play">
                   <div className="track-play__contain">
                     <div className="track-play__image">
@@ -54,7 +53,6 @@ function cntrBar() {
                       </a>
                     </div>
                   </div>
-
                   <div className="track-play__like-dis">
                     <div className="track-play__like _btn-icon">
                       <svg className="track-play__like-svg" alt="like">
@@ -90,5 +88,4 @@ function cntrBar() {
         </div>
     );
 }
-
 export default cntrBar;
