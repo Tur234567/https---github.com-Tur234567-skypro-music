@@ -1,5 +1,6 @@
 import React from "react";
 import "./bar.css";
+import { valueFunc } from "./cntrcontent.jsx";
 
 function cntrBar() {
     return (
@@ -36,7 +37,7 @@ function cntrBar() {
                   </div>
                 </div>
                 <div className="player__track-play track-play">
-                  <div className="track-play__contain">
+                  <div className={"track-play__contain contain-" + valueFunc}>
                     <div className="track-play__image">
                       <svg className="track-play__svg" alt="music">
                         <use xlinkHref="img/icon/sprite.svg#icon-note"></use>

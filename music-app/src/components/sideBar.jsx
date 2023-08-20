@@ -1,7 +1,9 @@
 import React from "react";
 import "./sideBar.css";
+import { valueFunc } from "./cntrcontent.jsx";
 
 function sidebar() {
+
     return (
         <div className="main__sidebar sidebar">
         <div className="sidebar__personal">
@@ -18,7 +20,7 @@ function sidebar() {
               <a className="sidebar__link" href="#">
                 <img
                   className="sidebar__img"
-                  src="/img/playlist01.png"
+                  src={"/img/playlist01"+ valueFunc + ".png"}
                   alt="day's playlist"
                 />
               </a>
@@ -27,7 +29,7 @@ function sidebar() {
               <a className="sidebar__link" href="#">
                 <img
                   className="sidebar__img"
-                  src="/img/playlist02.png"
+                  src={"/img/playlist02"+ valueFunc + ".png"}
                   alt="day's playlist"
                 />
               </a>
@@ -36,7 +38,7 @@ function sidebar() {
               <a className="sidebar__link" href="#">
                 <img
                   className="sidebar__img"
-                  src="/img/playlist03.png"
+                  src={"/img/playlist03"+ valueFunc + ".png"}
                   alt="day's playlist"
                 />
               </a>
