@@ -183,3 +183,33 @@
     text-align: right;
     color: #696969;
   }
+
+  .visibletrue {
+    background-color: #313131;
+    color: #313131;
+  }
+
+  .linktrue {
+    background-color: #313131;
+    color: #313131;
+  }
+
+  .authortrue {
+    background-color: #313131;
+    color: #313131;
+  }
+
+  .albumtrue {
+    background-color: #313131;
+    color: #313131;
+  }
+
+  .time-texttrue {
+    background-color: #313131;
+    color: #313131;
+  }
+  
+  .span-texttrue {
+    background-color: #313131;
+    color: #313131;
+  }
