@@ -7,7 +7,6 @@ import centerContent from "./components/cntrcontent";
 import cntrBar from "./components/bar";
 import sidebar from "./components/sideBar";
 import footer from "./components/footer";
-import logo from "./img/logo.png";
 function App() {
   return (
     <div className="wrapper">

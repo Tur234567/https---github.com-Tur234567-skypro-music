@@ -298,3 +298,8 @@
   .volume__progress-line {
     width: 109px;
   }
+
+  .footer-link-true {
+    background-color: #2e2e2e;
+    color: #2e2e2e;
+  }
