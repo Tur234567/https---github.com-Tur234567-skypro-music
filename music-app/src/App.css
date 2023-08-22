@@ -154,3 +154,7 @@ body {
 .filter__button:not(:last-child) {
   margin-right: 10px;
 }
+
+.content__playlist {
+  overflow-y: auto;
+}
