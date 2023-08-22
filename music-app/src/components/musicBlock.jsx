@@ -5,7 +5,7 @@ const { useState } = React;
 
 function mainNav() {
 
-  const [visible, setVisible] = useState(true);
+  const [visible, setVisible] = useState(false);
   
   const toggleVisible = () => setVisible(!visible);
 

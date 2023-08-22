@@ -1,7 +1,7 @@
 import React from "react";
 import "./centerBlockFilter.css";
 
-const { useState, useEffect } = React;
+const { useState } = React;
 
 function filter() {
   const [visible, setVisible] = useState(false);

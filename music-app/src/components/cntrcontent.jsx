@@ -29,13 +29,15 @@ function centerContent() {
           </svg>
         </div>
       </div>
-      <div className="content__playlist playlist">
+      <div className="content__playlist playlist overflow-playlist">
         <div className="playlist__item">
           <div className={"playlist__track track visible" + valueFunc}>
             <div className={"track__title visible" + valueFunc}>
               <div className="track__title-image">
                 <svg className="track__title-svg" alt="music">
-                  <use xlinkHref="img/icon/sprite.svg#icon-note"></use>
+                  <use
+                    xlinkHref={"img/icon/sprite" + valueFunc + ".svg#icon-note"}
+                  ></use>
                 </svg>
               </div>
               <div className="track__title-text">
@@ -68,7 +70,9 @@ function centerContent() {
             </div>
             <div className="track__time">
               <svg className="track__time-svg" alt="time">
-                <use xlinkHref="img/icon/sprite.svg#icon-like"></use>
+                <use
+                  xlinkHref={"img/icon/sprite" + valueFunc + ".svg#icon-like"}
+                ></use>
               </svg>
               <span className={"track__time-text time-text" + valueFunc}>
                 4:44
@@ -82,7 +86,9 @@ function centerContent() {
             <div className={"track__title visible" + valueFunc}>
               <div className="track__title-image">
                 <svg className="track__title-svg" alt="music">
-                  <use xlinkHref="img/icon/sprite.svg#icon-note"></use>
+                  <use
+                    xlinkHref={"img/icon/sprite" + valueFunc + ".svg#icon-note"}
+                  ></use>
                 </svg>
               </div>
               <div className="track__title-text">
@@ -115,7 +121,9 @@ function centerContent() {
             </div>
             <div className="track__time">
               <svg className="track__time-svg" alt="time">
-                <use xlinkHref="img/icon/sprite.svg#icon-like"></use>
+                <use
+                  xlinkHref={"img/icon/sprite" + valueFunc + ".svg#icon-like"}
+                ></use>
               </svg>
               <span className={"track__time-text time-text" + valueFunc}>
                 2:22
@@ -129,7 +137,9 @@ function centerContent() {
             <div className={"track__title visible" + valueFunc}>
               <div className="track__title-image">
                 <svg className="track__title-svg" alt="music">
-                  <use xlinkHref="img/icon/sprite.svg#icon-note"></use>
+                  <use
+                    xlinkHref={"img/icon/sprite" + valueFunc + ".svg#icon-note"}
+                  ></use>
                 </svg>
               </div>
               <div className="track__title-text">
@@ -162,7 +172,9 @@ function centerContent() {
             </div>
             <div className="track__time">
               <svg className="track__time-svg" alt="time">
-                <use xlinkHref="img/icon/sprite.svg#icon-like"></use>
+                <use
+                  xlinkHref={"img/icon/sprite" + valueFunc + ".svg#icon-like"}
+                ></use>
               </svg>
               <span className={"track__time-text time-text" + valueFunc}>
                 2:22
@@ -176,7 +188,9 @@ function centerContent() {
             <div className={"track__title visible" + valueFunc}>
               <div className="track__title-image">
                 <svg className="track__title-svg" alt="music">
-                  <use xlinkHref="img/icon/sprite.svg#icon-note"></use>
+                  <use
+                    xlinkHref={"img/icon/sprite" + valueFunc + ".svg#icon-note"}
+                  ></use>
                 </svg>
               </div>
               <div className="track__title-text">
@@ -209,7 +223,9 @@ function centerContent() {
             </div>
             <div className="track__time">
               <svg className="track__time-svg" alt="time">
-                <use xlinkHref="img/icon/sprite.svg#icon-like"></use>
+                <use
+                  xlinkHref={"img/icon/sprite" + valueFunc + ".svg#icon-like"}
+                ></use>
               </svg>
               <span className={"track__time-text time-text" + valueFunc}>
                 4:12
@@ -223,7 +239,9 @@ function centerContent() {
             <div className={"track__title visible" + valueFunc}>
               <div className="track__title-image">
                 <svg className="track__title-svg" alt="music">
-                  <use xlinkHref="img/icon/sprite.svg#icon-note"></use>
+                  <use
+                    xlinkHref={"img/icon/sprite" + valueFunc + ".svg#icon-note"}
+                  ></use>
                 </svg>
               </div>
               <div className="track__title-text">
@@ -256,7 +274,9 @@ function centerContent() {
             </div>
             <div className="track__time">
               <svg className="track__time-svg" alt="time">
-                <use xlinkHref="img/icon/sprite.svg#icon-like"></use>
+                <use
+                  xlinkHref={"img/icon/sprite" + valueFunc + ".svg#icon-like"}
+                ></use>
               </svg>
               <span className={"track__time-text time-text" + valueFunc}>
                 2:54
@@ -270,7 +290,9 @@ function centerContent() {
             <div className={"track__title visible" + valueFunc}>
               <div className="track__title-image">
                 <svg className="track__title-svg" alt="music">
-                  <use xlinkHref="img/icon/sprite.svg#icon-note"></use>
+                  <use
+                    xlinkHref={"img/icon/sprite" + valueFunc + ".svg#icon-note"}
+                  ></use>
                 </svg>
               </div>
               <div className="track__title-text">
@@ -303,7 +325,9 @@ function centerContent() {
             </div>
             <div className="track__time">
               <svg className="track__time-svg" alt="time">
-                <use xlinkHref="img/icon/sprite.svg#icon-like"></use>
+                <use
+                  xlinkHref={"img/icon/sprite" + valueFunc + ".svg#icon-like"}
+                ></use>
               </svg>
               <span className={"track__time-text time-text" + valueFunc}>
                 5:20
@@ -317,7 +341,9 @@ function centerContent() {
             <div className={"track__title visible" + valueFunc}>
               <div className="track__title-image">
                 <svg className="track__title-svg" alt="music">
-                  <use xlinkHref="img/icon/sprite.svg#icon-note"></use>
+                  <use
+                    xlinkHref={"img/icon/sprite" + valueFunc + ".svg#icon-note"}
+                  ></use>
                 </svg>
               </div>
               <div className="track__title-text">
@@ -350,7 +376,9 @@ function centerContent() {
             </div>
             <div className="track__time">
               <svg className="track__time-svg" alt="time">
-                <use xlinkHref="img/icon/sprite.svg#icon-like"></use>
+                <use
+                  xlinkHref={"img/icon/sprite" + valueFunc + ".svg#icon-like"}
+                ></use>
               </svg>
               <span className={"track__time-text time-text" + valueFunc}>
                 3:41
@@ -364,7 +392,9 @@ function centerContent() {
             <div className={"track__title visible" + valueFunc}>
               <div className="track__title-image">
                 <svg className="track__title-svg" alt="music">
-                  <use xlinkHref="img/icon/sprite.svg#icon-note"></use>
+                  <use
+                    xlinkHref={"img/icon/sprite" + valueFunc + ".svg#icon-note"}
+                  ></use>
                 </svg>
               </div>
               <div className="track__title-text">
@@ -397,7 +427,9 @@ function centerContent() {
             </div>
             <div className="track__time">
               <svg className="track__time-svg" alt="time">
-                <use xlinkHref="img/icon/sprite.svg#icon-like"></use>
+                <use
+                  xlinkHref={"img/icon/sprite" + valueFunc + ".svg#icon-like"}
+                ></use>
               </svg>
               <span className={"track__time-text time-text" + valueFunc}>
                 1:48
@@ -411,7 +443,9 @@ function centerContent() {
             <div className={"track__title visible" + valueFunc}>
               <div className="track__title-image">
                 <svg className="track__title-svg" alt="music">
-                  <use xlinkHref="img/icon/sprite.svg#icon-note"></use>
+                  <use
+                    xlinkHref={"img/icon/sprite" + valueFunc + ".svg#icon-note"}
+                  ></use>
                 </svg>
               </div>
               <div className="track__title-text">
@@ -444,7 +478,9 @@ function centerContent() {
             </div>
             <div className="track__time">
               <svg className="track__time-svg" alt="time">
-                <use xlinkHref="img/icon/sprite.svg#icon-like"></use>
+                <use
+                  xlinkHref={"img/icon/sprite" + valueFunc + ".svg#icon-like"}
+                ></use>
               </svg>
               <span className={"track__time-text time-text" + valueFunc}>
                 1:48
@@ -457,7 +493,9 @@ function centerContent() {
             <div className={"track__title visible" + valueFunc}>
               <div className="track__title-image">
                 <svg className="track__title-svg" alt="music">
-                  <use xlinkHref="img/icon/sprite.svg#icon-note"></use>
+                  <use
+                    xlinkHref={"img/icon/sprite" + valueFunc + ".svg#icon-note"}
+                  ></use>
                 </svg>
               </div>
               <div className="track__title-text">
@@ -490,7 +528,9 @@ function centerContent() {
             </div>
             <div className="track__time">
               <svg className="track__time-svg" alt="time">
-                <use xlinkHref="img/icon/sprite.svg#icon-like"></use>
+                <use
+                  xlinkHref={"img/icon/sprite" + valueFunc + ".svg#icon-like"}
+                ></use>
               </svg>
               <span className={"track__time-text time-text" + valueFunc}>
                 1:48
@@ -503,7 +543,9 @@ function centerContent() {
             <div className={"track__title visible" + valueFunc}>
               <div className="track__title-image">
                 <svg className="track__title-svg" alt="music">
-                  <use xlinkHref="img/icon/sprite.svg#icon-note"></use>
+                  <use
+                    xlinkHref={"img/icon/sprite" + valueFunc + ".svg#icon-note"}
+                  ></use>
                 </svg>
               </div>
               <div className="track__title-text">
@@ -536,7 +578,9 @@ function centerContent() {
             </div>
             <div className="track__time">
               <svg className="track__time-svg" alt="time">
-                <use xlinkHref="img/icon/sprite.svg#icon-like"></use>
+                <use
+                  xlinkHref={"img/icon/sprite" + valueFunc + ".svg#icon-like"}
+                ></use>
               </svg>
               <span className={"track__time-text time-text" + valueFunc}>
                 1:48
@@ -549,7 +593,9 @@ function centerContent() {
             <div className={"track__title visible" + valueFunc}>
               <div className="track__title-image">
                 <svg className="track__title-svg" alt="music">
-                  <use xlinkHref="img/icon/sprite.svg#icon-note"></use>
+                  <use
+                    xlinkHref={"img/icon/sprite" + valueFunc + ".svg#icon-note"}
+                  ></use>
                 </svg>
               </div>
               <div className="track__title-text">
@@ -582,7 +628,9 @@ function centerContent() {
             </div>
             <div className="track__time">
               <svg className="track__time-svg" alt="time">
-                <use xlinkHref="img/icon/sprite.svg#icon-like"></use>
+                <use
+                  xlinkHref={"img/icon/sprite" + valueFunc + ".svg#icon-like"}
+                ></use>
               </svg>
               <span className={"track__time-text time-text" + valueFunc}>
                 1:48
@@ -595,7 +643,9 @@ function centerContent() {
             <div className={"track__title visible" + valueFunc}>
               <div className="track__title-image">
                 <svg className="track__title-svg" alt="music">
-                  <use xlinkHref="img/icon/sprite.svg#icon-note"></use>
+                  <use
+                    xlinkHref={"img/icon/sprite" + valueFunc + ".svg#icon-note"}
+                  ></use>
                 </svg>
               </div>
               <div className="track__title-text">
@@ -628,7 +678,9 @@ function centerContent() {
             </div>
             <div className="track__time">
               <svg className="track__time-svg" alt="time">
-                <use xlinkHref="img/icon/sprite.svg#icon-like"></use>
+                <use
+                  xlinkHref={"img/icon/sprite" + valueFunc + ".svg#icon-like"}
+                ></use>
               </svg>
               <span className={"track__time-text time-text" + valueFunc}>
                 1:48
@@ -641,7 +693,9 @@ function centerContent() {
             <div className={"track__title visible" + valueFunc}>
               <div className="track__title-image">
                 <svg className="track__title-svg" alt="music">
-                  <use xlinkHref="img/icon/sprite.svg#icon-note"></use>
+                  <use
+                    xlinkHref={"img/icon/sprite" + valueFunc + ".svg#icon-note"}
+                  ></use>
                 </svg>
               </div>
               <div className="track__title-text">
@@ -674,7 +728,9 @@ function centerContent() {
             </div>
             <div className="track__time">
               <svg className="track__time-svg" alt="time">
-                <use xlinkHref="img/icon/sprite.svg#icon-like"></use>
+                <use
+                  xlinkHref={"img/icon/sprite" + valueFunc + ".svg#icon-like"}
+                ></use>
               </svg>
               <span className={"track__time-text time-text" + valueFunc}>
                 1:48
@@ -688,7 +744,9 @@ function centerContent() {
             <div className={"track__title visible" + valueFunc}>
               <div className="track__title-image">
                 <svg className="track__title-svg" alt="music">
-                  <use xlinkHref="img/icon/sprite.svg#icon-note"></use>
+                  <use
+                    xlinkHref={"img/icon/sprite" + valueFunc + ".svg#icon-note"}
+                  ></use>
                 </svg>
               </div>
               <div className="track__title-text">
@@ -721,7 +779,9 @@ function centerContent() {
             </div>
             <div className="track__time">
               <svg className="track__time-svg" alt="time">
-                <use xlinkHref="img/icon/sprite.svg#icon-like"></use>
+                <use
+                  xlinkHref={"img/icon/sprite" + valueFunc + ".svg#icon-like"}
+                ></use>
               </svg>
               <span className={"track__time-text time-text" + valueFunc}>
                 3:32
@@ -735,7 +795,9 @@ function centerContent() {
             <div className={"track__title visible" + valueFunc}>
               <div className="track__title-image">
                 <svg className="track__title-svg" alt="music">
-                  <use xlinkHref="img/icon/sprite.svg#icon-note"></use>
+                  <use
+                    xlinkHref={"img/icon/sprite" + valueFunc + ".svg#icon-note"}
+                  ></use>
                 </svg>
               </div>
               <div className="track__title-text">
@@ -768,7 +830,9 @@ function centerContent() {
             </div>
             <div className="track__time">
               <svg className="track__time-svg" alt="time">
-                <use xlinkHref="img/icon/sprite.svg#icon-like"></use>
+                <use
+                  xlinkHref={"img/icon/sprite" + valueFunc + ".svg#icon-like"}
+                ></use>
               </svg>
               <span className={"track__time-text time-text" + valueFunc}>
                 3:36
@@ -782,7 +846,9 @@ function centerContent() {
             <div className={"track__title visible" + valueFunc}>
               <div className="track__title-image">
                 <svg className="track__title-svg" alt="music">
-                  <use xlinkHref="img/icon/sprite.svg#icon-note"></use>
+                  <use
+                    xlinkHref={"img/icon/sprite" + valueFunc + ".svg#icon-note"}
+                  ></use>
                 </svg>
               </div>
               <div className="track__title-text">
@@ -810,7 +876,9 @@ function centerContent() {
             </div>
             <div className="track__time">
               <svg className="track__time-svg" alt="time">
-                <use xlinkHref="img/icon/sprite.svg#icon-like"></use>
+                <use
+                  xlinkHref={"img/icon/sprite" + valueFunc + ".svg#icon-like"}
+                ></use>
               </svg>
               <span className={"track__time-text time-text" + valueFunc}></span>
             </div>
