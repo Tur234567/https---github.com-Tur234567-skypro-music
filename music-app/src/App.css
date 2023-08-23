@@ -53,7 +53,6 @@ body {
 
 .container {
   max-width: 1920px;
-  height: 100vh;
   margin: 0 auto;
   position: relative;
   background-color: #181818;
@@ -153,4 +152,8 @@ body {
 
 .filter__button:not(:last-child) {
   margin-right: 10px;
+}
+
+.content__playlist {
+  overflow-y: auto;
 }

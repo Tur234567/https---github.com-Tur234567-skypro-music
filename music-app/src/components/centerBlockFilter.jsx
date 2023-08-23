@@ -4,11 +4,28 @@ import "./centerBlockFilter.css";
 const { useState } = React;
 
 function filter() {
+  const [visible, setVisible] = useState(false);
+  const [visibleGenre, setVisibleGenre] = useState(false);
+  const [visibleYear, setVisibleYear] = useState(false);
 
-  const [visible, setVisible] = useState(!true);
-  
-  const toggleVisible = () => setVisible(!visible);
-  
+  function toggleVisible() {
+      setVisible(!visible);
+      setVisibleGenre(null)
+      setVisibleYear(null)
+  }
+
+  function toggleVisibleYear() {
+    setVisibleYear(!visibleYear)
+    setVisibleGenre(null)
+    setVisible(null);
+  }
+
+  function toggleVisibleGenre() {
+    setVisibleGenre(!visibleGenre)
+    setVisible(null);
+    setVisibleYear(null)
+  }
+
     return (
       <div className="parent">
         <div className="centerblock__filter filter">
@@ -16,14 +33,14 @@ function filter() {
               <div className="filter__button button-author _btn-text" onClick={toggleVisible}>
                 исполнителю
               </div>
-              <div className="filter__button button-year _btn-text" onClick={toggleVisible}>
+              <div className="filter__button button-year _btn-text" onClick={toggleVisibleYear}>
                 году выпуска
               </div>
-              <div className="filter__button button-genre _btn-text" onClick={toggleVisible}>
+              <div className="filter__button button-genre _btn-text" onClick={toggleVisibleGenre}>
               жанру</div>
             </div>
             {visible && (
-  <div className="author">
+      <div className="author">
       <div className="author_content author_content-author">
       <span>Nero</span>
     <span>Dynoro, Outwork, Mr. Gee</span>
@@ -38,7 +55,7 @@ function filter() {
       </div>
   </div>
   )}
-  {visible && (
+  {visibleYear && (
   <div className="author author-year">
     <div className="author_content author_content-year">
     <span>По умолчанию</span>
@@ -47,7 +64,7 @@ function filter() {
     </div>
   </div>
   )}
-  {visible && (
+  {visibleGenre && (
   <div className="author author-genre">
     <div className="author_content author_content-genre">
     <span>Рок</span>
