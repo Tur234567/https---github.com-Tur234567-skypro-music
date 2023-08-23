@@ -29,7 +29,8 @@ function centerContent() {
           </svg>
         </div>
       </div>
-      <div className="content__playlist playlist overflow-playlist">
+      <div className="overflow-playlist">
+      <div className="content__playlist playlist">
         <div className="playlist__item">
           <div className={"playlist__track track visible" + valueFunc}>
             <div className={"track__title visible" + valueFunc}>
@@ -884,6 +885,7 @@ function centerContent() {
             </div>
           </div>
         </div>
+      </div>
       </div>
     </div>
   );
