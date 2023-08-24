@@ -1,5 +1,5 @@
 import React from "react";
-import "./musicBlock.css";
+import * as S from "./musicBlock";
 
 const { useState } = React;
 
@@ -10,37 +10,37 @@ function mainNav() {
   const toggleVisible = () => setVisible(!visible);
 
     return (
-        <nav className="main__nav nav">
-            <div className="nav__logo logo">
-              <img className="logo__image" src="/img/logo.png" alt="logo" />
-            </div>
-            <div className="nav__burger burger burger-click" onClick={toggleVisible}>{visible}
-              <span className="burger__line"></span>
-              <span className="burger__line"></span>
-              <span className="burger__line"></span>
-            </div>
+        <S.MainNav className="main__nav nav">
+            <S.LogoNav className="nav__logo logo">
+              <S.MenuLogoImg className="logo__image" src="/img/logo.png" alt="logo" />
+            </S.LogoNav>
+            <S.BurgerNav className="nav__burger burger burger-click" onClick={toggleVisible}>{visible}
+              <S.MenuBurgerLine className="burger__line"></S.MenuBurgerLine>
+              <S.MenuBurgerLine className="burger__line"></S.MenuBurgerLine>
+              <S.MenuBurgerLine className="burger__line"></S.MenuBurgerLine>
+            </S.BurgerNav>
             {visible && (
-              <div className="nav__menu menu">
-              <ul className="menu__list">
-                <li className="menu__item">
-                  <a href="#" className="menu__link">
+              <S.MenuNav className="nav__menu menu">
+              <S.MenuList className="menu__list">
+                <S.MenuItem className="menu__item">
+                  <S.MenuLink href="#" className="menu__link">
                     Главное
-                  </a>
-                </li>
-                <li className="menu__item">
-                  <a href="#" className="menu__link">
+                  </S.MenuLink>
+                </S.MenuItem>
+                <S.MenuItem className="menu__item">
+                  <S.MenuLink href="#" className="menu__link">
                     Мой плейлист
-                  </a>
-                </li>
-                <li className="menu__item">
-                  <a href="../signin.html" className="menu__link">
+                  </S.MenuLink>
+                </S.MenuItem>
+                <S.MenuItem className="menu__item">
+                  <S.MenuLink href="../signin.html" className="menu__link">
                     Войти
-                  </a>
-                </li>
-              </ul>
-            </div>
+                  </S.MenuLink>
+                </S.MenuItem>
+              </S.MenuList>
+            </S.MenuNav>
             )}
-          </nav>
+          </S.MainNav>
           );
 }
 

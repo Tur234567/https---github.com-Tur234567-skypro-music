@@ -1,51 +1,50 @@
 import React from "react";
-import "./sideBar.css";
 import { valueFunc } from "./cntrcontent.jsx";
+import * as S from "./sideBar";
 
 function sidebar() {
-
     return (
-        <div className="main__sidebar sidebar">
-        <div className="sidebar__personal">
-          <p className="sidebar__personal-name">Sergey.Ivanov</p>
-          <div className="sidebar__icon">
+        <S.BarMain className="main__sidebar sidebar">
+        <S.DivPersonal className="sidebar__personal">
+          <S.PersonalName className="sidebar__personal-name">Sergey.Ivanov</S.PersonalName>
+          <S.icon className="sidebar__icon">
             <svg alt="logout">
               <use xlinkHref="img/icon/sprite.svg#logout"></use>
             </svg>
-          </div>
-        </div>
-        <div className="sidebar__block">
-          <div className="sidebar__list">
-            <div className="sidebar__item">
-              <a className="sidebar__link" href="#">
-                <img
+          </S.icon>
+        </S.DivPersonal>
+        <S.BarBlock className="sidebar__block">
+          <S.BarList className="sidebar__list">
+            <S.BarItem className="sidebar__item">
+              <S.BarLink className="sidebar__link" href="#">
+                <S.BarImg
                   className="sidebar__img"
                   src={"/img/playlist01"+ valueFunc + ".png"}
                   alt="day's playlist"
                 />
-              </a>
-            </div>
-            <div className="sidebar__item">
-              <a className="sidebar__link" href="#">
-                <img
+              </S.BarLink>
+            </S.BarItem>
+            <S.BarItem className="sidebar__item">
+              <S.BarLink className="sidebar__link" href="#">
+                <S.BarImg
                   className="sidebar__img"
                   src={"/img/playlist02"+ valueFunc + ".png"}
                   alt="day's playlist"
                 />
-              </a>
-            </div>
-            <div className="sidebar__item">
-              <a className="sidebar__link" href="#">
-                <img
+              </S.BarLink>
+            </S.BarItem>
+            <S.BarItem className="sidebar__item">
+              <S.BarLink className="sidebar__link" href="#">
+                <S.BarImg
                   className="sidebar__img"
                   src={"/img/playlist03"+ valueFunc + ".png"}
                   alt="day's playlist"
                 />
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
+              </S.BarLink>
+            </S.BarItem>
+          </S.BarList>
+        </S.BarBlock>
+      </S.BarMain>
     );
 }
 
