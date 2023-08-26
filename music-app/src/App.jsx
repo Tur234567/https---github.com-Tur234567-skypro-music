@@ -1,30 +1,31 @@
 import "./App.css";
+import * as S from "./App.js";
 import React from "react";
-import mainNav from "./components/musicBlock";
-import search from "./components/centerBlockSearch";
-import filter from "./components/centerBlockFilter";
-import centerContent from "./components/cntrcontent";
-import cntrBar from "./components/bar";
-import sidebar from "./components/sideBar";
-import footer from "./components/footer";
+import mainNav from "./components/musicBlock.jsx";
+import search from "./components/centerBlockSearch.jsx";
+import filter from "./components/centerBlockFilter.jsx";
+import centerContent from "./components/cntrcontent.jsx";
+import cntrBar from "./components/bar.jsx";
+import sidebar from "./components/sideBar.jsx";
+import footer from "./components/footer.jsx";
 function App() {
   return (
-    <div className="wrapper">
-      <div className="container">
-        <main className="main">
+    <S.DivWrapper className="wrapper">
+      <S.DivContainer className="container">
+        <S.DivMain className="main">
         {mainNav()}
-          <div className="main__centerblock centerblock">
+          <S.DivMainCenterBlock className="main__centerblock centerblock">
             {search()}
-            <h2 className="centerblock__h2">Треки</h2>
+            <S.DivMainCenterBlockH2 className="centerblock__h2">Треки</S.DivMainCenterBlockH2>
             {filter()}
             {centerContent()}
-          </div>
+          </S.DivMainCenterBlock>
           {sidebar()}
-        </main>
+        </S.DivMain>
         {cntrBar()}
         {footer()}
-      </div>
-    </div>
+      </S.DivContainer>
+    </S.DivWrapper>
   );
 }
 

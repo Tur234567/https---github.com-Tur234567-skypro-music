@@ -38,4 +38,40 @@ export const centerBlockSearchInput = styled.input`
     font-size: 16px;
     line-height: 24px;
     color: #ffffff;
+
+    &::-webkit-input-placeholder {
+        background-color: transparent;
+        color: #ffffff;
+        font-style: normal;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 24px;
+      }
+      
+      &:-ms-input-placeholder {
+        background-color: transparent;
+        color: #ffffff;
+        font-style: normal;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 24px;
+      }
+      
+      &::-ms-input-placeholder {
+        background-color: transparent;
+        color: #ffffff;
+        font-style: normal;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 24px;
+      }
+      
+      &::placeholder {
+        background-color: transparent;
+        color: #ffffff;
+        font-style: normal;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 24px;
+      }
 `;

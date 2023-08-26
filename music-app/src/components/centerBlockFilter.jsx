@@ -1,6 +1,5 @@
 import React from "react";
-import "./centerBlockFilter.css";
-import * as S from "./centerBlockSearch"
+import * as S from "./centerBlockFilter.js"
 
 const { useState } = React;
 
@@ -28,21 +27,21 @@ function filter() {
   }
 
     return (
-      <div className="parent">
-        <div className="centerblock__filter filter">
-              <div className="filter__title">Искать по:</div>
-              <div className="filter__button button-author _btn-text" onClick={toggleVisible}>
+      <S.DivParent className="parent">
+        <S.DivCenterBlockFilter className="centerblock__filter filter">
+              <S.DivFilterTitle className="filter__title">Искать по:</S.DivFilterTitle>
+              <S.DivFilterButton className="filter__button button-author _btn-text" onClick={toggleVisible}>
                 исполнителю
-              </div>
-              <div className="filter__button button-year _btn-text" onClick={toggleVisibleYear}>
+              </S.DivFilterButton>
+              <S.DivFilterButton className="filter__button button-year _btn-text" onClick={toggleVisibleYear}>
                 году выпуска
-              </div>
-              <div className="filter__button button-genre _btn-text" onClick={toggleVisibleGenre}>
-              жанру</div>
-            </div>
+              </S.DivFilterButton>
+              <S.DivFilterButton className="filter__button button-genre _btn-text" onClick={toggleVisibleGenre}>
+              жанру</S.DivFilterButton>
+            </S.DivCenterBlockFilter>
             {visible && (
-      <div className="author">
-      <div className="author_content author_content-author">
+      <S.DivAuthor className="author">
+      <S.DivAuthorContent className="author_content author_content-author">
       <span>Nero</span>
     <span>Dynoro, Outwork, Mr. Gee</span>
     <span>Ali Bakgor</span>
@@ -53,30 +52,30 @@ function filter() {
     <span>minthaze</span>
     <span>Calvin Harris, Disciples</span>
     <span>Tom Boxer</span>
-      </div>
-  </div>
+      </S.DivAuthorContent>
+  </S.DivAuthor>
   )}
   {visibleYear && (
-  <div className="author author-year">
-    <div className="author_content author_content-year">
+  <S.DivAuthor className="author author-year">
+    <S.DivAuthorContent className="author_content author_content-year">
     <span>По умолчанию</span>
     <span>Сначала новые</span>
     <span>Сначала старые</span>
-    </div>
-  </div>
+    </S.DivAuthorContent>
+  </S.DivAuthor>
   )}
   {visibleGenre && (
-  <div className="author author-genre">
-    <div className="author_content author_content-genre">
+  <S.DivAuthor className="author author-genre">
+    <S.DivAuthorContent className="author_content author_content-genre">
     <span>Рок</span>
     <span>Хип-хоп</span>
     <span>Поп-музыка</span>
     <span>Техно</span>
     <span>Инди</span>
-    </div>
-  </div>
+    </S.DivAuthorContent>
+  </S.DivAuthor>
   )}
-      </div>
+      </S.DivParent>
     );
 }
 export default filter;

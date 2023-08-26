@@ -48,21 +48,21 @@ function cntrBar() {
                 <S.BarTrackPlayAuthor className="track-play__author">
                   <S.BarTrackPlayAuthorLink
                     className={
-                      "track-play__author-link"
+                      "track-play__author-link footer-link-" + valueFunc
                     }
                     href="http://"
                   >
-                    Ты та...
+                    {!valueFunc ? "Ты та..." : ""}
                   </S.BarTrackPlayAuthorLink>
                 </S.BarTrackPlayAuthor>
                 <S.BarTrackPlayAlbum className="track-play__album">
                   <S.BarTrackPlayAlbumLink
                     className={
-                      "track-play__author-link"
+                      "track-play__author-link footer-link-" + valueFunc
                     }
                     href="http://"
                   >
-                    Баста
+                    {!valueFunc ? "Баста" : ""}
                   </S.BarTrackPlayAlbumLink>
                 </S.BarTrackPlayAlbum>
               </S.BarPlayerTrackPlayContain>
