@@ -1,5 +1,6 @@
 import React from "react";
 import * as S from "./musicBlock";
+import { Link } from "react-router-dom";
 
 const { useState } = React;
 
@@ -8,6 +9,11 @@ function mainNav() {
   const [visible, setVisible] = useState(false);
   
   const toggleVisible = () => setVisible(!visible);
+
+  function toggleLocalStorage() {
+    localStorage.clear();
+    window.location.reload()
+  }
 
     return (
         <S.MainNav className="main__nav nav">
@@ -28,14 +34,24 @@ function mainNav() {
                   </S.MenuLink>
                 </S.MenuItem>
                 <S.MenuItem className="menu__item">
-                  <S.MenuLink href="#" className="menu__link">
+                  <Link to="/playlist">
+                  <S.MenuLink className="menu__link">
                     Мой плейлист
                   </S.MenuLink>
+                  </Link>
                 </S.MenuItem>
                 <S.MenuItem className="menu__item">
-                  <S.MenuLink href="../signin.html" className="menu__link">
+                  {localStorage.getItem('token') ? 
+                  <Link to='/'>
+                  <S.MenuLink onClick={toggleLocalStorage} className="menu__link">
+                    Выйти
+                  </S.MenuLink>
+                  </Link>
+                   : <Link to="/login">
+                  <S.MenuLink className="menu__link">
                     Войти
                   </S.MenuLink>
+                  </Link>}
                 </S.MenuItem>
               </S.MenuList>
             </S.MenuNav>

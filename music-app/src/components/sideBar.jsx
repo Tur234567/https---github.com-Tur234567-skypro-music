@@ -1,7 +1,7 @@
 import React from "react";
 import { valueFunc } from "./cntrcontent.jsx";
 import * as S from "./sideBar";
-
+import { Link } from "react-router-dom";
 function sidebar() {
     return (
         <S.BarMain className="main__sidebar sidebar">
@@ -16,6 +16,7 @@ function sidebar() {
         <S.BarBlock className="sidebar__block">
           <S.BarList className="sidebar__list">
             <S.BarItem className="sidebar__item">
+              <Link className='Link' to="/category/1">
               <S.BarLink className="sidebar__link" href="#">
                 <S.BarImg
                   className="sidebar__img"
@@ -23,8 +24,10 @@ function sidebar() {
                   alt="day's playlist"
                 />
               </S.BarLink>
+              </Link>
             </S.BarItem>
             <S.BarItem className="sidebar__item">
+              <Link className='Link' to="/category/2">
               <S.BarLink className="sidebar__link" href="#">
                 <S.BarImg
                   className="sidebar__img"
@@ -32,8 +35,10 @@ function sidebar() {
                   alt="day's playlist"
                 />
               </S.BarLink>
+              </Link>
             </S.BarItem>
             <S.BarItem className="sidebar__item">
+              <Link className='Link' to="/category/3">
               <S.BarLink className="sidebar__link" href="#">
                 <S.BarImg
                   className="sidebar__img"
@@ -41,6 +46,7 @@ function sidebar() {
                   alt="day's playlist"
                 />
               </S.BarLink>
+              </Link>
             </S.BarItem>
           </S.BarList>
         </S.BarBlock>
