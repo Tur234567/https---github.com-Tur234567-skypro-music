@@ -1,4 +1,5 @@
 import React from "react";
+// для сохранения
 import { valueFunc } from "./cntrcontent.jsx";
 import * as S from "./sideBar";
 import { Link } from "react-router-dom";
