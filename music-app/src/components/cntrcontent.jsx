@@ -1,4 +1,3 @@
-import "./cntrContent.css";
 import React from "react";
 import * as S from "./cntrContent.js";
 export let valueFunc;
@@ -10,7 +9,7 @@ function timeGray() {
   const toggleValue = () => falseValue(!value);
 
   useEffect(() => {
-    const timerId = setTimeout(toggleValue, 5000);
+    const timerId = setTimeout(toggleValue, 500);
     if (value === false) {
       clearTimeout(timerId);
     }
