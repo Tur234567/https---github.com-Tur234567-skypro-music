@@ -8,8 +8,10 @@ import centerContent from "../../components/cntrcontent.jsx";
 import cntrBar from "../../components/bar.jsx";
 import sidebar from "../../components/sideBar.jsx";
 import footer from "../../components/footer.jsx";
+import { Link } from "react-router-dom";
 export const Main = () => {
     return (
+      localStorage.getItem('token') ? 
         <S.DivWrapper className="wrapper">
       <S.DivContainer className="container">
         <S.DivMain className="main">
@@ -24,6 +26,12 @@ export const Main = () => {
         </S.DivMain>
         {cntrBar()}
         {footer()}
+      </S.DivContainer>
+    </S.DivWrapper>
+    : 
+    <S.DivWrapper className="wrapper">
+      <S.DivContainer className="container">
+        <Link to='/login'><h1>Авторизоваться</h1></Link>
       </S.DivContainer>
     </S.DivWrapper>
     )
