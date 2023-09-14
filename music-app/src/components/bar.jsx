@@ -2,12 +2,15 @@ import React from "react";
 import { valueFunc } from "./cntrcontent.jsx";
 import * as S from "./bar";
 import { useRef, useState } from "react";
+import ProgressBar from "./ProgressBar.jsx";
+
+export let audioRef = '';
 
 function cntrBar() {
   const { useEffect } = React;
   const [isPlaying, setIsPlaying] = useState(false);
   const [isPlayingLoop, setIsPlayingLoop] = useState(false);
-  const audioRef = useRef(null);
+  audioRef = useRef(null);
   
   const handleStart = () => {
     audioRef.current.play();
@@ -33,37 +36,19 @@ function cntrBar() {
 
   const toggleLoop = isPlayingLoop ? handleLoopStop : handleLoop;
 
-  const [currentTime, setCurrentTime] = useState(0);
-  const [currentVolume, setCurrentVolume] = useState(0.5);
-  const [duration, setDuration] = useState(0);
+  const [currentVolume, setCurrentVolume] = useState(0.1);
 
   useEffect(() => {
-    audioRef.current.currentTime = currentTime;
-    setDuration(audioRef.current.duration);
     audioRef.current.volume = currentVolume;
   })
-
- function ProgressBar() {
-    return (
-      <input
-        type="range"
-        min={0}
-        max={duration}
-        value={currentTime}
-        step={0.01}
-        onChange={(event) => setCurrentTime(event.target.value)}
-        $color="#ff0000"
-      />
-    );
-  }
 
   return (
     <S.BarDiv className="bar">
       <S.BarAudio controls ref={audioRef}>
         <source src="/music/Katy Perry - I Kissed A Girl.mp3" type="audio/mpeg" />
       </S.BarAudio>
-      <S.BarDivContent className="bar__content">  
-      <ProgressBar></ProgressBar>
+      <S.BarDivContent className="bar__content">
+        <ProgressBar></ProgressBar>
         <S.BarDivPlayerBlock className="bar__player-block">
           <S.BarDivPlayer className="bar__player player">
             <S.BarPlayerControls className="player__controls">
