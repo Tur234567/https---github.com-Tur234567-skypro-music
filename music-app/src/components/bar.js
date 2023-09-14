@@ -308,4 +308,6 @@ export const BarVolumeProgressLine = styled.input`
 width: 109px;
 `
 
-
+export const BarAudio = styled.audio`
+display: none;
+`
