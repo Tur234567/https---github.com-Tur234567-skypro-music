@@ -1,13 +1,13 @@
 import React from "react";
 import { valueFunc } from "./cntrcontent.jsx";
 import * as S from "./bar";
-import { useRef, useState } from "react";
+import { useRef, useState, useEffect } from "react";
 import ProgressBar from "./ProgressBar.jsx";
+import { getTodosId } from "../api.js";
 
 export let audioRef = "";
 
 function cntrBar() {
-  const { useEffect } = React;
   const [isPlaying, setIsPlaying] = useState(false);
   const [isPlayingLoop, setIsPlayingLoop] = useState(false);
   audioRef = useRef(null);
@@ -29,6 +29,7 @@ function cntrBar() {
   const togglePlay = isPlaying ? handleStop : handleStart;
 
   const handleLoop = () => {
+    console.log(Id);
     audioRef.current.loop = true;
     setIsPlayingLoop(true);
   };
@@ -46,14 +47,19 @@ function cntrBar() {
     audioRef.current.volume = currentVolume;
   });
 
+  const [Id, setId] = useState([]);
+
+  useEffect(() => {
+    getTodosId().then((e) => {
+      setId(e)
+    });
+  });
+
   return (
-    <S.BarDiv className="bar">
-      <S.BarAudio controls ref={audioRef}>
-        <source
-          src="/music/Katy Perry - I Kissed A Girl.mp3"
-          type="audio/mpeg"
-        />
-      </S.BarAudio>
+        <S.BarDiv className="bar">
+          <S.BarAudio controls ref={audioRef}>
+              <source src={Id.track_file} type="audio/mpeg" />
+          </S.BarAudio>
       <S.BarDivContent className="bar__content">
         <ProgressBar></ProgressBar>
         <S.BarDivPlayerBlock className="bar__player-block">
@@ -161,19 +167,19 @@ function cntrBar() {
                     }
                     href="http://"
                   >
-                    {!valueFunc ? "Ты та..." : ""}
+                    {!valueFunc ? `${Id.name}` : ""}
                   </S.BarTrackPlayAuthorLink>
                 </S.BarTrackPlayAuthor>
                 <S.BarTrackPlayAlbum className="track-play__album">
-                  <S.BarTrackPlayAlbumLink
-                    className={
-                      "track-play__author-link footer-link-" + valueFunc
-                    }
-                    href="http://"
-                  >
-                    {!valueFunc ? "Баста" : ""}
-                  </S.BarTrackPlayAlbumLink>
-                </S.BarTrackPlayAlbum>
+                <S.BarTrackPlayAlbumLink
+                  className={
+                    "track-play__author-link footer-link-" + valueFunc
+                  }
+                  href="http://"
+                >
+                  {!valueFunc ? `${Id.author}` : ""}
+                </S.BarTrackPlayAlbumLink>
+              </S.BarTrackPlayAlbum>
               </S.BarPlayerTrackPlayContain>
               <S.BarPlayerTrackPlayLikeDis className="track-play__like-dis">
                 <S.BarTrackPlayLike
@@ -226,6 +232,7 @@ function cntrBar() {
         </S.BarDivPlayerBlock>
       </S.BarDivContent>
     </S.BarDiv>
-  );
+  )
 }
+
 export default cntrBar;
