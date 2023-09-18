@@ -1,12 +1,14 @@
 import React, { useEffect, useState } from "react";
 import * as S from "./cntrContent.js";
-import { getTodos } from "../api.js";
+import { getTodos, getTodosId } from "../api.js";
 export let valueFunc;
-export let info;
+
+let info;
 
 function infoClick(e) {
   console.log(e.id);
   info = e.id;
+  return getTodosId(info);
 }
 
 function timeGray() {
@@ -26,7 +28,6 @@ function timeGray() {
 function centerContent() {
 
   const [todos, setTodos] = useState([]);
-
   useEffect(() => {
     getTodos().then((todos) => {
       setTodos(todos);

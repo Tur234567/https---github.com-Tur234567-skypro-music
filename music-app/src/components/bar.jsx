@@ -29,6 +29,9 @@ function cntrBar() {
   const togglePlay = isPlaying ? handleStop : handleStart;
 
   const handleLoop = () => {
+    getTodosId().then((e) => {
+      console.log(e);
+    })
     console.log(Id);
     audioRef.current.loop = true;
     setIsPlayingLoop(true);
@@ -51,9 +54,9 @@ function cntrBar() {
 
   useEffect(() => {
     getTodosId().then((e) => {
-      setId(e)
-    });
-  });
+      setId(e);
+    })
+  }, [])
 
   return (
         <S.BarDiv className="bar">
