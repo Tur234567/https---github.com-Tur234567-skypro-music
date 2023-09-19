@@ -30,7 +30,7 @@ export default function ProgressBar() {
       audioRef.current.removeEventListener("timeupdate", handleTimeUpdate);
     };
   }, []);
-
+  
   return (
     <S.mainDiv>
       <S.miniDiv>

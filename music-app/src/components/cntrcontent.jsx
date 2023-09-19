@@ -1,14 +1,16 @@
 import React, { useEffect, useState } from "react";
 import * as S from "./cntrContent.js";
-import { getTodos, getTodosId } from "../api.js";
+import { getTodos } from "../api.js";
+import { clickParams, getId } from "./bar.jsx";
 export let valueFunc;
-
 let info;
 
+let error;
+
 function infoClick(e) {
-  console.log(e.id);
   info = e.id;
-  return getTodosId(info);
+  getId(info);
+  clickParams(false);
 }
 
 function timeGray() {
@@ -29,15 +31,19 @@ function centerContent() {
 
   const [todos, setTodos] = useState([]);
   useEffect(() => {
-    getTodos().then((todos) => {
-      setTodos(todos);
-    });
+    getTodos().then((e) => {
+      if (!(e[0].id === 8)) {
+        error = e;
+      } else {
+        setTodos(e);
+      }
+    })
   }, []);
 
   timeGray();
   return (
     <S.DivCenterBlockContent className="centerblock__content">
-      <S.DivContentTitle className="content__title playlist-title">
+      {error ? error : <div><S.DivContentTitle className="content__title playlist-title">
         <S.DivPlaylistTitleCol className="playlist-title__col col01">
           Трек
         </S.DivPlaylistTitleCol>
@@ -128,7 +134,8 @@ function centerContent() {
             );
           })}
         </S.DivContentPlaylist>
-      </S.DivOverflowPlaylist>
+      </S.DivOverflowPlaylist></div>}
+      
     </S.DivCenterBlockContent>
   );
 }

@@ -55,17 +55,6 @@ display: -webkit-box;
     justify-content: flex-start;
 `;
 
-export const BarVolumeBlock = styled.div`
-width: auto;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-align: center;
-    -ms-flex-align: center;
-    align-items: center;
-    padding: 0 92px 0 0;
-`;
-
 export const BarPlayerControls = styled.div`
 display: -webkit-box;
     display: -ms-flexbox;
@@ -274,6 +263,19 @@ width: 14.34px;
     fill: transparent;
     stroke: #696969;
 `
+
+export const BarAudio = styled.audio`
+display: none;
+`
+
+export const BarVolumeProgress = styled.div`
+width: 109px;
+`
+
+export const BarVolumeProgressLine = styled.input`
+width: 109px;
+`
+
 export const BarVolumeContent = styled.div`
 display: -webkit-box;
 display: -ms-flexbox;
@@ -296,18 +298,19 @@ width: 13px;
     margin-right: 17px;
 `
 
-export const BarVolumeProgress = styled.div`
-width: 109px;
-`
+export const BarVolumeBlock = styled.div`
+width: auto;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    padding: 0 92px 0 0;
+`;
+
 export const BarVolumeSvg = styled.svg`
 width: 13px;
     height: 18px;
     fill: transparent;
-`
-export const BarVolumeProgressLine = styled.input`
-width: 109px;
-`
-
-export const BarAudio = styled.audio`
-display: none;
 `
