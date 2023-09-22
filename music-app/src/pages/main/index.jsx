@@ -8,7 +8,7 @@ import centerContent from "../../components/cntrcontent.jsx";
 import cntrBar from "../../components/bar.jsx";
 import sidebar from "../../components/sideBar.jsx";
 import footer from "../../components/footer.jsx";
-import { Link } from "react-router-dom";
+import AuthPage from "../loginApi/AuthPage";
 export const Main = () => {
     return (
       localStorage.getItem('token') ? 
@@ -29,10 +29,6 @@ export const Main = () => {
       </S.DivContainer>
     </S.DivWrapper>
     : 
-    <S.DivWrapper className="wrapper">
-      <S.DivContainer className="container">
-        <Link to='/login'><h1>Авторизоваться</h1></Link>
-      </S.DivContainer>
-    </S.DivWrapper>
+    <AuthPage></AuthPage>
     )
 }
