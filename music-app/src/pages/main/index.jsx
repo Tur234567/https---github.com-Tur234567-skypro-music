@@ -9,6 +9,7 @@ import CntrBar from "../../components/bar.jsx";
 import SideBar from "../../components/sideBar.jsx";
 import FooterBar from "../../components/footer.jsx";
 import AuthPage from "../loginApi/AuthPage";
+
 export const Main = () => {
     return (
       localStorage.getItem('token') ? 

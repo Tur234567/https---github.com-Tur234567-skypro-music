@@ -3,17 +3,8 @@ import { Link } from "react-router-dom";
 import * as S from "./AuthPage.styles";
 import { useEffect, useState } from "react";
 import { getLogin, register } from "../../api";
-import { Main } from "../main";
 
-export const UserContext = React.createContext();
-
-function pushContext(e) {
-  return (
-    <UserContext.Provider value={e}>
-    <Main/>
-  </UserContext.Provider> 
-  )   
-}
+export let username = localStorage.getItem('username');
 
 export default function AuthPage() {
   const [isLoginMode, setisLoginMode] = useState(true);
@@ -26,8 +17,8 @@ export default function AuthPage() {
     getLogin(email, password).then((json) => {
       if (json.id) {
         localStorage.setItem('token', true);
-        pushContext(json);
-        window.location.href = '/';
+        localStorage.setItem('username', json.username);
+        window.location.href = "/";
       } else {
         console.log(json);
         setError(json.detail ? json.detail : (json.password ? 'Пароль:' + json.password : 'Емейл:' + json.email));
@@ -40,7 +31,8 @@ export default function AuthPage() {
     register(email, password).then((json) => {
       if (json.id) {
         localStorage.setItem('token', true);
-        window.location.href = '/';
+        localStorage.setItem('username', json.username);
+        window.location.href = "/";
       } else {
         console.log(json);
         if (!(repeatPassword === password)) {
@@ -62,7 +54,7 @@ export default function AuthPage() {
   }, [isLoginMode, email, password, repeatPassword]);
 
   return (
-    <S.PageContainer>
+     <S.PageContainer>
       <S.ModalForm>
         <Link to="/login">
           <S.ModalLogo>

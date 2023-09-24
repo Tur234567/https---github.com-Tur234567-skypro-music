@@ -1,8 +1,8 @@
-import React from "react";
+import React, { useContext } from "react";
 import { valueFunc } from "./cntrcontent.jsx";
 import * as S from "./sideBar";
 import { Link } from "react-router-dom";
-import { UserContext } from "../pages/loginApi/AuthPage.jsx";
+import { UserContext } from "../App.jsx";
 
 function toggleLocalStorage() {
   localStorage.clear();
@@ -10,12 +10,12 @@ function toggleLocalStorage() {
 }
 
 function SideBar() {
+  const theme = useContext(UserContext);
+  console.log(theme);
     return (
         <S.BarMain className="main__sidebar sidebar">
         <S.DivPersonal className="sidebar__personal">
-          <UserContext.Consumer>
-              {event => console.log(event)}
-        </UserContext.Consumer>
+        <S.PersonalName className="sidebar__personal-name">{theme}</S.PersonalName>
           <S.icon className="sidebar__icon" onClick={toggleLocalStorage}>
             <svg alt="logout">
               <use xlinkHref="img/icon/sprite.svg#logout"></use>
