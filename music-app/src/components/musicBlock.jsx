@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 const { useState } = React;
 
-function mainNav() {
+function MainNav() {
 
   const [visible, setVisible] = useState(false);
   
@@ -60,4 +60,4 @@ function mainNav() {
           );
 }
 
-export default mainNav;
+export default MainNav;

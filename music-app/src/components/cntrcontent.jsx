@@ -27,7 +27,7 @@ function timeGray() {
   });
 }
 
-function centerContent() {
+function CenterContent() {
 
   const [todos, setTodos] = useState([]);
   useEffect(() => {
@@ -140,4 +140,4 @@ function centerContent() {
   );
 }
 
-export default centerContent;
+export default CenterContent;

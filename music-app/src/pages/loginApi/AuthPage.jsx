@@ -3,14 +3,14 @@ import { Link } from "react-router-dom";
 import * as S from "./AuthPage.styles";
 import { useEffect, useState } from "react";
 import { getLogin, register } from "../../api";
-import App from "../../App.jsx";
-let user;
-export const UserContext = React.createContext(null);
+import { Main } from "../main";
 
-function pushContext() {
+export const UserContext = React.createContext();
+
+function pushContext(e) {
   return (
-    <UserContext.Provider value={user}>
-    <App/>
+    <UserContext.Provider value={e}>
+    <Main/>
   </UserContext.Provider> 
   )   
 }
@@ -26,9 +26,8 @@ export default function AuthPage() {
     getLogin(email, password).then((json) => {
       if (json.id) {
         localStorage.setItem('token', true);
-        user = json;
-        pushContext();
-        window.location.reload();
+        pushContext(json);
+        window.location.href = '/';
       } else {
         console.log(json);
         setError(json.detail ? json.detail : (json.password ? 'Пароль:' + json.password : 'Емейл:' + json.email));
@@ -41,7 +40,7 @@ export default function AuthPage() {
     register(email, password).then((json) => {
       if (json.id) {
         localStorage.setItem('token', true);
-        window.location.reload();
+        window.location.href = '/';
       } else {
         console.log(json);
         if (!(repeatPassword === password)) {

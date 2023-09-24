@@ -3,19 +3,18 @@ import { valueFunc } from "./cntrcontent.jsx";
 import * as S from "./sideBar";
 import { Link } from "react-router-dom";
 import { UserContext } from "../pages/loginApi/AuthPage.jsx";
-import App from "../App.jsx";
 
 function toggleLocalStorage() {
   localStorage.clear();
   window.location.reload()
 }
 
-function sidebar() {
+function SideBar() {
     return (
         <S.BarMain className="main__sidebar sidebar">
         <S.DivPersonal className="sidebar__personal">
           <UserContext.Consumer>
-        <S.PersonalName className="sidebar__personal-name">{(json) => <App json={json.username} />}</S.PersonalName>
+              {event => console.log(event)}
         </UserContext.Consumer>
           <S.icon className="sidebar__icon" onClick={toggleLocalStorage}>
             <svg alt="logout">
@@ -63,5 +62,4 @@ function sidebar() {
       </S.BarMain>
     );
 }
-
-export default sidebar;
+export default SideBar

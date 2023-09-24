@@ -1,13 +1,13 @@
 import "../../App.css";
 import * as S from "../../App.js";
 import React from "react";
-import mainNav from "../../components/musicBlock.jsx";
-import search from "../../components/centerBlockSearch.jsx";
-import filter from "../../components/centerBlockFilter.jsx";
-import centerContent from "../../components/cntrcontent.jsx";
-import cntrBar from "../../components/bar.jsx";
-import sidebar from "../../components/sideBar.jsx";
-import footer from "../../components/footer.jsx";
+import MainNav from "../../components/musicBlock.jsx";
+import SearchBar from "../../components/centerBlockSearch.jsx";
+import FilterBar from "../../components/centerBlockFilter.jsx";
+import CenterContent from "../../components/cntrcontent.jsx";
+import CntrBar from "../../components/bar.jsx";
+import SideBar from "../../components/sideBar.jsx";
+import FooterBar from "../../components/footer.jsx";
 import AuthPage from "../loginApi/AuthPage";
 export const Main = () => {
     return (
@@ -15,20 +15,20 @@ export const Main = () => {
         <S.DivWrapper className="wrapper">
       <S.DivContainer className="container">
         <S.DivMain className="main">
-        {mainNav()}
+        <MainNav/>
           <S.DivMainCenterBlock className="main__centerblock centerblock">
-            {search()}
+            <SearchBar/>
             <S.DivMainCenterBlockH2 className="centerblock__h2">Треки</S.DivMainCenterBlockH2>
-            {filter()}
-            {centerContent()}
+           <FilterBar/>
+            <CenterContent/>
           </S.DivMainCenterBlock>
-          {sidebar()}
+          <SideBar/>
         </S.DivMain>
-        {cntrBar()}
-        {footer()}
+        <CntrBar/>
+        <FooterBar/>
       </S.DivContainer>
     </S.DivWrapper>
     : 
-    <AuthPage></AuthPage>
+    <AuthPage/>
     )
 }
