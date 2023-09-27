@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import React from "react";
-import { audioRef } from "./bar.jsx";
+import { audioRef, nextTrack} from "./bar.jsx";
 import * as S from "./ProgressBar.js";
 
 export default function ProgressBar() {
@@ -27,10 +27,20 @@ export default function ProgressBar() {
   useEffect(() => {
     audioRef.current.addEventListener("timeupdate", handleTimeUpdate);
     return () => {
-      audioRef.current.removeEventListener("timeupdate", handleTimeUpdate);
+      if (audioRef.current) {
+        audioRef.current.removeEventListener("timeupdate", handleTimeUpdate);
+      }
     };
   }, []);
-  
+
+  useEffect(() => {
+    if (audioRef.current) {
+      if (audioRef.current.currentTime === audioRef.current.duration) {
+        nextTrack();
+      }
+    }
+  })
+ 
   return (
     <S.mainDiv>
       <S.miniDiv>

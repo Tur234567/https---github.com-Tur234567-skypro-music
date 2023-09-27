@@ -20,7 +20,6 @@ export async function getTodosId(e) {
     throw new Error("Произошла ошибка сервера");
   }
   const data = await response.json();
-  console.log(data);
   return data;
 }
 
