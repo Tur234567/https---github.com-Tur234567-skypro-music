@@ -3,7 +3,7 @@ import * as S from "./centerBlockFilter.js"
 
 const { useState } = React;
 
-function filter() {
+function FilterBar() {
   const [visible, setVisible] = useState(false);
   const [visibleGenre, setVisibleGenre] = useState(false);
   const [visibleYear, setVisibleYear] = useState(false);
@@ -78,4 +78,4 @@ function filter() {
       </S.DivParent>
     );
 }
-export default filter;
+export default FilterBar;

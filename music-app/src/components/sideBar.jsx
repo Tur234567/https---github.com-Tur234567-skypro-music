@@ -1,14 +1,22 @@
-import React from "react";
-// для сохранения
+import React, { useContext } from "react";
 import { valueFunc } from "./cntrcontent.jsx";
 import * as S from "./sideBar";
 import { Link } from "react-router-dom";
-function sidebar() {
+import { UserContext } from "../App.jsx";
+
+function toggleLocalStorage() {
+  localStorage.clear();
+  window.location.reload()
+}
+
+function SideBar() {
+  const theme = useContext(UserContext);
+  console.log(theme);
     return (
         <S.BarMain className="main__sidebar sidebar">
         <S.DivPersonal className="sidebar__personal">
-          <S.PersonalName className="sidebar__personal-name">Sergey.Ivanov</S.PersonalName>
-          <S.icon className="sidebar__icon">
+        <S.PersonalName className="sidebar__personal-name">{theme}</S.PersonalName>
+          <S.icon className="sidebar__icon" onClick={toggleLocalStorage}>
             <svg alt="logout">
               <use xlinkHref="img/icon/sprite.svg#logout"></use>
             </svg>
@@ -54,5 +62,4 @@ function sidebar() {
       </S.BarMain>
     );
 }
-
-export default sidebar;
+export default SideBar

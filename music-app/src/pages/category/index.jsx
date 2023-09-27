@@ -1,6 +1,8 @@
 import React from 'react';
 import * as S from "../../App.js";
-import { Link, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
+import AuthPage from '../loginApi/AuthPage.jsx';
+
 
 export const Category = () => {  
     const params = useParams();
@@ -12,10 +14,6 @@ export const Category = () => {
       </S.DivContainer>
     </S.DivWrapper> 
     : 
-    <S.DivWrapper className="wrapper">
-      <S.DivContainer className="container">
-        <Link to='/login'><h1>Авторизоваться</h1></Link>
-      </S.DivContainer>
-    </S.DivWrapper>
+    <AuthPage></AuthPage>
     )
 }

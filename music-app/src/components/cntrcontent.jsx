@@ -1,6 +1,17 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import * as S from "./cntrContent.js";
+import { getTodos } from "../api.js";
+import { clickParams, getId } from "./bar.jsx";
 export let valueFunc;
+let info;
+
+let error;
+
+function infoClick(e) {
+  info = e.id;
+  getId(info);
+  clickParams(false);
+}
 
 function timeGray() {
   const { useState, useEffect } = React;
@@ -15,11 +26,24 @@ function timeGray() {
     }
   });
 }
-function centerContent() {
+
+function CenterContent() {
+
+  const [todos, setTodos] = useState([]);
+  useEffect(() => {
+    getTodos().then((e) => {
+      if (!(e[0].id === 8)) {
+        error = e;
+      } else {
+        setTodos(e);
+      }
+    })
+  }, []);
+
   timeGray();
   return (
     <S.DivCenterBlockContent className="centerblock__content">
-      <S.DivContentTitle className="content__title playlist-title">
+      {error ? error : <div><S.DivContentTitle className="content__title playlist-title">
         <S.DivPlaylistTitleCol className="playlist-title__col col01">
           Трек
         </S.DivPlaylistTitleCol>
@@ -37,978 +61,83 @@ function centerContent() {
       </S.DivContentTitle>
       <S.DivOverflowPlaylist className="overflow-playlist">
         <S.DivContentPlaylist className="content__playlist playlist">
-          <S.DivPlaylistItem className="playlist__item">
-            <S.DivPlaylistTrack
-              className={"playlist__track track visible" + valueFunc}
-            >
-              <S.DivTrackTitle className={"track__title visible" + valueFunc}>
-                <S.DivTrackTitleImg className="track__title-image">
-                  <S.DivTrackTitleSvg className="track__title-svg" alt="music">
-                    <use
-                      xlinkHref={
-                        "img/icon/sprite" + valueFunc + ".svg#icon-note"
-                      }
-                    ></use>
-                  </S.DivTrackTitleSvg>
-                </S.DivTrackTitleImg>
-                <S.DivTrackTitleText className="track__title-text">
-                  <S.DivTrackTitleLink
-                    className={"track__title-link link" + valueFunc}
-                    href="http://"
+          {todos.map((todo) => {
+            return (
+              <S.DivPlaylistItem
+                className="playlist__item"
+                onClick={() => infoClick(todo)}
+              >
+                <S.DivPlaylistTrack
+                  className={"playlist__track track visible" + valueFunc}
+                >
+                  <S.DivTrackTitle
+                    className={"track__title visible" + valueFunc}
                   >
-                    {!valueFunc ? "Guilt" : ""}
-                    <S.DivTrackTitleSpan
-                      className={"track__title-span span-text" + valueFunc}
-                    ></S.DivTrackTitleSpan>
-                  </S.DivTrackTitleLink>
-                </S.DivTrackTitleText>
-              </S.DivTrackTitle>
-              <S.DivTrackAuthor className="track__author">
-                <S.DivTrackAuthorLink
-                  className={"track__author-link author" + valueFunc}
-                  href="http://"
-                >
-                  {!valueFunc ? "Nero" : ""}
-                </S.DivTrackAuthorLink>
-              </S.DivTrackAuthor>
-              <S.DivTrackAlbum className="track__album">
-                <S.DivTrackAlbumLink
-                  className={"track__album-link album" + valueFunc}
-                  href="http://"
-                >
-                  {!valueFunc ? "Welcome Reality" : ""}
-                </S.DivTrackAlbumLink>
-              </S.DivTrackAlbum>
-              <S.DivTrackTime className="track__time">
-                <S.DivTrackTimeSvg className="track__time-svg" alt="time">
-                  <use
-                    xlinkHref={"img/icon/sprite" + valueFunc + ".svg#icon-like"}
-                  ></use>
-                </S.DivTrackTimeSvg>
-                <S.DivTrackTimeText
-                  className={"track__time-text time-text" + valueFunc}
-                >
-                  {!valueFunc ? "4:44" : ""}
-                </S.DivTrackTimeText>
-              </S.DivTrackTime>
-            </S.DivPlaylistTrack>
-          </S.DivPlaylistItem>
-
-          <S.DivPlaylistItem className="playlist__item">
-            <S.DivPlaylistTrack
-              className={"playlist__track track visible" + valueFunc}
-            >
-              <S.DivTrackTitle className={"track__title visible" + valueFunc}>
-                <S.DivTrackTitleImg className="track__title-image">
-                  <S.DivTrackTitleSvg className="track__title-svg" alt="music">
-                    <use
-                      xlinkHref={
-                        "img/icon/sprite" + valueFunc + ".svg#icon-note"
-                      }
-                    ></use>
-                  </S.DivTrackTitleSvg>
-                </S.DivTrackTitleImg>
-                <S.DivTrackTitleText className="track__title-text">
-                  <S.DivTrackTitleLink
-                    className={"track__title-link link" + valueFunc}
-                    href="http://"
-                  >
-                    {!valueFunc ? "Guilt" : ""}
-                    <S.DivTrackTitleSpan
-                      className={"track__title-span span-text" + valueFunc}
-                    ></S.DivTrackTitleSpan>
-                  </S.DivTrackTitleLink>
-                </S.DivTrackTitleText>
-              </S.DivTrackTitle>
-              <S.DivTrackAuthor className="track__author">
-                <S.DivTrackAuthorLink
-                  className={"track__author-link author" + valueFunc}
-                  href="http://"
-                >
-                  {!valueFunc ? "Nero" : ""}
-                </S.DivTrackAuthorLink>
-              </S.DivTrackAuthor>
-              <S.DivTrackAlbum className="track__album">
-                <S.DivTrackAlbumLink
-                  className={"track__album-link album" + valueFunc}
-                  href="http://"
-                >
-                  {!valueFunc ? "Welcome Reality" : ""}
-                </S.DivTrackAlbumLink>
-              </S.DivTrackAlbum>
-              <S.DivTrackTime className="track__time">
-                <S.DivTrackTimeSvg className="track__time-svg" alt="time">
-                  <use
-                    xlinkHref={"img/icon/sprite" + valueFunc + ".svg#icon-like"}
-                  ></use>
-                </S.DivTrackTimeSvg>
-                <S.DivTrackTimeText
-                  className={"track__time-text time-text" + valueFunc}
-                >
-                  {!valueFunc ? "4:44" : ""}
-                </S.DivTrackTimeText>
-              </S.DivTrackTime>
-            </S.DivPlaylistTrack>
-          </S.DivPlaylistItem>
-
-          <S.DivPlaylistItem className="playlist__item">
-            <S.DivPlaylistTrack
-              className={"playlist__track track visible" + valueFunc}
-            >
-              <S.DivTrackTitle className={"track__title visible" + valueFunc}>
-                <S.DivTrackTitleImg className="track__title-image">
-                  <S.DivTrackTitleSvg className="track__title-svg" alt="music">
-                    <use
-                      xlinkHref={
-                        "img/icon/sprite" + valueFunc + ".svg#icon-note"
-                      }
-                    ></use>
-                  </S.DivTrackTitleSvg>
-                </S.DivTrackTitleImg>
-                <S.DivTrackTitleText className="track__title-text">
-                  <S.DivTrackTitleLink
-                    className={"track__title-link link" + valueFunc}
-                    href="http://"
-                  >
-                    {!valueFunc ? "Guilt" : ""}
-                    <S.DivTrackTitleSpan
-                      className={"track__title-span span-text" + valueFunc}
-                    ></S.DivTrackTitleSpan>
-                  </S.DivTrackTitleLink>
-                </S.DivTrackTitleText>
-              </S.DivTrackTitle>
-              <S.DivTrackAuthor className="track__author">
-                <S.DivTrackAuthorLink
-                  className={"track__author-link author" + valueFunc}
-                  href="http://"
-                >
-                  {!valueFunc ? "Nero" : ""}
-                </S.DivTrackAuthorLink>
-              </S.DivTrackAuthor>
-              <S.DivTrackAlbum className="track__album">
-                <S.DivTrackAlbumLink
-                  className={"track__album-link album" + valueFunc}
-                  href="http://"
-                >
-                  {!valueFunc ? "Welcome Reality" : ""}
-                </S.DivTrackAlbumLink>
-              </S.DivTrackAlbum>
-              <S.DivTrackTime className="track__time">
-                <S.DivTrackTimeSvg className="track__time-svg" alt="time">
-                  <use
-                    xlinkHref={"img/icon/sprite" + valueFunc + ".svg#icon-like"}
-                  ></use>
-                </S.DivTrackTimeSvg>
-                <S.DivTrackTimeText
-                  className={"track__time-text time-text" + valueFunc}
-                >
-                  {!valueFunc ? "4:44" : ""}
-                </S.DivTrackTimeText>
-              </S.DivTrackTime>
-            </S.DivPlaylistTrack>
-          </S.DivPlaylistItem>
-
-          <S.DivPlaylistItem className="playlist__item">
-            <S.DivPlaylistTrack
-              className={"playlist__track track visible" + valueFunc}
-            >
-              <S.DivTrackTitle className={"track__title visible" + valueFunc}>
-                <S.DivTrackTitleImg className="track__title-image">
-                  <S.DivTrackTitleSvg className="track__title-svg" alt="music">
-                    <use
-                      xlinkHref={
-                        "img/icon/sprite" + valueFunc + ".svg#icon-note"
-                      }
-                    ></use>
-                  </S.DivTrackTitleSvg>
-                </S.DivTrackTitleImg>
-                <S.DivTrackTitleText className="track__title-text">
-                  <S.DivTrackTitleLink
-                    className={"track__title-link link" + valueFunc}
-                    href="http://"
-                  >
-                    {!valueFunc ? "Guilt" : ""}
-                    <S.DivTrackTitleSpan
-                      className={"track__title-span span-text" + valueFunc}
-                    ></S.DivTrackTitleSpan>
-                  </S.DivTrackTitleLink>
-                </S.DivTrackTitleText>
-              </S.DivTrackTitle>
-              <S.DivTrackAuthor className="track__author">
-                <S.DivTrackAuthorLink
-                  className={"track__author-link author" + valueFunc}
-                  href="http://"
-                >
-                  {!valueFunc ? "Nero" : ""}
-                </S.DivTrackAuthorLink>
-              </S.DivTrackAuthor>
-              <S.DivTrackAlbum className="track__album">
-                <S.DivTrackAlbumLink
-                  className={"track__album-link album" + valueFunc}
-                  href="http://"
-                >
-                  {!valueFunc ? "Welcome Reality" : ""}
-                </S.DivTrackAlbumLink>
-              </S.DivTrackAlbum>
-              <S.DivTrackTime className="track__time">
-                <S.DivTrackTimeSvg className="track__time-svg" alt="time">
-                  <use
-                    xlinkHref={"img/icon/sprite" + valueFunc + ".svg#icon-like"}
-                  ></use>
-                </S.DivTrackTimeSvg>
-                <S.DivTrackTimeText
-                  className={"track__time-text time-text" + valueFunc}
-                >
-                  {!valueFunc ? "4:44" : ""}
-                </S.DivTrackTimeText>
-              </S.DivTrackTime>
-            </S.DivPlaylistTrack>
-          </S.DivPlaylistItem>
-
-          <S.DivPlaylistItem className="playlist__item">
-            <S.DivPlaylistTrack
-              className={"playlist__track track visible" + valueFunc}
-            >
-              <S.DivTrackTitle className={"track__title visible" + valueFunc}>
-                <S.DivTrackTitleImg className="track__title-image">
-                  <S.DivTrackTitleSvg className="track__title-svg" alt="music">
-                    <use
-                      xlinkHref={
-                        "img/icon/sprite" + valueFunc + ".svg#icon-note"
-                      }
-                    ></use>
-                  </S.DivTrackTitleSvg>
-                </S.DivTrackTitleImg>
-                <S.DivTrackTitleText className="track__title-text">
-                  <S.DivTrackTitleLink
-                    className={"track__title-link link" + valueFunc}
-                    href="http://"
-                  >
-                    {!valueFunc ? "Guilt" : ""}
-                    <S.DivTrackTitleSpan
-                      className={"track__title-span span-text" + valueFunc}
-                    ></S.DivTrackTitleSpan>
-                  </S.DivTrackTitleLink>
-                </S.DivTrackTitleText>
-              </S.DivTrackTitle>
-              <S.DivTrackAuthor className="track__author">
-                <S.DivTrackAuthorLink
-                  className={"track__author-link author" + valueFunc}
-                  href="http://"
-                >
-                  {!valueFunc ? "Nero" : ""}
-                </S.DivTrackAuthorLink>
-              </S.DivTrackAuthor>
-              <S.DivTrackAlbum className="track__album">
-                <S.DivTrackAlbumLink
-                  className={"track__album-link album" + valueFunc}
-                  href="http://"
-                >
-                  {!valueFunc ? "Welcome Reality" : ""}
-                </S.DivTrackAlbumLink>
-              </S.DivTrackAlbum>
-              <S.DivTrackTime className="track__time">
-                <S.DivTrackTimeSvg className="track__time-svg" alt="time">
-                  <use
-                    xlinkHref={"img/icon/sprite" + valueFunc + ".svg#icon-like"}
-                  ></use>
-                </S.DivTrackTimeSvg>
-                <S.DivTrackTimeText
-                  className={"track__time-text time-text" + valueFunc}
-                >
-                  {!valueFunc ? "4:44" : ""}
-                </S.DivTrackTimeText>
-              </S.DivTrackTime>
-            </S.DivPlaylistTrack>
-          </S.DivPlaylistItem>
-
-          <S.DivPlaylistItem className="playlist__item">
-            <S.DivPlaylistTrack
-              className={"playlist__track track visible" + valueFunc}
-            >
-              <S.DivTrackTitle className={"track__title visible" + valueFunc}>
-                <S.DivTrackTitleImg className="track__title-image">
-                  <S.DivTrackTitleSvg className="track__title-svg" alt="music">
-                    <use
-                      xlinkHref={
-                        "img/icon/sprite" + valueFunc + ".svg#icon-note"
-                      }
-                    ></use>
-                  </S.DivTrackTitleSvg>
-                </S.DivTrackTitleImg>
-                <S.DivTrackTitleText className="track__title-text">
-                  <S.DivTrackTitleLink
-                    className={"track__title-link link" + valueFunc}
-                    href="http://"
-                  >
-                    {!valueFunc ? "Guilt" : ""}
-                    <S.DivTrackTitleSpan
-                      className={"track__title-span span-text" + valueFunc}
-                    ></S.DivTrackTitleSpan>
-                  </S.DivTrackTitleLink>
-                </S.DivTrackTitleText>
-              </S.DivTrackTitle>
-              <S.DivTrackAuthor className="track__author">
-                <S.DivTrackAuthorLink
-                  className={"track__author-link author" + valueFunc}
-                  href="http://"
-                >
-                  {!valueFunc ? "Nero" : ""}
-                </S.DivTrackAuthorLink>
-              </S.DivTrackAuthor>
-              <S.DivTrackAlbum className="track__album">
-                <S.DivTrackAlbumLink
-                  className={"track__album-link album" + valueFunc}
-                  href="http://"
-                >
-                  {!valueFunc ? "Welcome Reality" : ""}
-                </S.DivTrackAlbumLink>
-              </S.DivTrackAlbum>
-              <S.DivTrackTime className="track__time">
-                <S.DivTrackTimeSvg className="track__time-svg" alt="time">
-                  <use
-                    xlinkHref={"img/icon/sprite" + valueFunc + ".svg#icon-like"}
-                  ></use>
-                </S.DivTrackTimeSvg>
-                <S.DivTrackTimeText
-                  className={"track__time-text time-text" + valueFunc}
-                >
-                  {!valueFunc ? "4:44" : ""}
-                </S.DivTrackTimeText>
-              </S.DivTrackTime>
-            </S.DivPlaylistTrack>
-          </S.DivPlaylistItem>
-
-          <S.DivPlaylistItem className="playlist__item">
-            <S.DivPlaylistTrack
-              className={"playlist__track track visible" + valueFunc}
-            >
-              <S.DivTrackTitle className={"track__title visible" + valueFunc}>
-                <S.DivTrackTitleImg className="track__title-image">
-                  <S.DivTrackTitleSvg className="track__title-svg" alt="music">
-                    <use
-                      xlinkHref={
-                        "img/icon/sprite" + valueFunc + ".svg#icon-note"
-                      }
-                    ></use>
-                  </S.DivTrackTitleSvg>
-                </S.DivTrackTitleImg>
-                <S.DivTrackTitleText className="track__title-text">
-                  <S.DivTrackTitleLink
-                    className={"track__title-link link" + valueFunc}
-                    href="http://"
-                  >
-                    {!valueFunc ? "Guilt" : ""}
-                    <S.DivTrackTitleSpan
-                      className={"track__title-span span-text" + valueFunc}
-                    ></S.DivTrackTitleSpan>
-                  </S.DivTrackTitleLink>
-                </S.DivTrackTitleText>
-              </S.DivTrackTitle>
-              <S.DivTrackAuthor className="track__author">
-                <S.DivTrackAuthorLink
-                  className={"track__author-link author" + valueFunc}
-                  href="http://"
-                >
-                  {!valueFunc ? "Nero" : ""}
-                </S.DivTrackAuthorLink>
-              </S.DivTrackAuthor>
-              <S.DivTrackAlbum className="track__album">
-                <S.DivTrackAlbumLink
-                  className={"track__album-link album" + valueFunc}
-                  href="http://"
-                >
-                  {!valueFunc ? "Welcome Reality" : ""}
-                </S.DivTrackAlbumLink>
-              </S.DivTrackAlbum>
-              <S.DivTrackTime className="track__time">
-                <S.DivTrackTimeSvg className="track__time-svg" alt="time">
-                  <use
-                    xlinkHref={"img/icon/sprite" + valueFunc + ".svg#icon-like"}
-                  ></use>
-                </S.DivTrackTimeSvg>
-                <S.DivTrackTimeText
-                  className={"track__time-text time-text" + valueFunc}
-                >
-                  {!valueFunc ? "4:44" : ""}
-                </S.DivTrackTimeText>
-              </S.DivTrackTime>
-            </S.DivPlaylistTrack>
-          </S.DivPlaylistItem>
-
-          <S.DivPlaylistItem className="playlist__item">
-            <S.DivPlaylistTrack
-              className={"playlist__track track visible" + valueFunc}
-            >
-              <S.DivTrackTitle className={"track__title visible" + valueFunc}>
-                <S.DivTrackTitleImg className="track__title-image">
-                  <S.DivTrackTitleSvg className="track__title-svg" alt="music">
-                    <use
-                      xlinkHref={
-                        "img/icon/sprite" + valueFunc + ".svg#icon-note"
-                      }
-                    ></use>
-                  </S.DivTrackTitleSvg>
-                </S.DivTrackTitleImg>
-                <S.DivTrackTitleText className="track__title-text">
-                  <S.DivTrackTitleLink
-                    className={"track__title-link link" + valueFunc}
-                    href="http://"
-                  >
-                    {!valueFunc ? "Guilt" : ""}
-                    <S.DivTrackTitleSpan
-                      className={"track__title-span span-text" + valueFunc}
-                    ></S.DivTrackTitleSpan>
-                  </S.DivTrackTitleLink>
-                </S.DivTrackTitleText>
-              </S.DivTrackTitle>
-              <S.DivTrackAuthor className="track__author">
-                <S.DivTrackAuthorLink
-                  className={"track__author-link author" + valueFunc}
-                  href="http://"
-                >
-                  {!valueFunc ? "Nero" : ""}
-                </S.DivTrackAuthorLink>
-              </S.DivTrackAuthor>
-              <S.DivTrackAlbum className="track__album">
-                <S.DivTrackAlbumLink
-                  className={"track__album-link album" + valueFunc}
-                  href="http://"
-                >
-                  {!valueFunc ? "Welcome Reality" : ""}
-                </S.DivTrackAlbumLink>
-              </S.DivTrackAlbum>
-              <S.DivTrackTime className="track__time">
-                <S.DivTrackTimeSvg className="track__time-svg" alt="time">
-                  <use
-                    xlinkHref={"img/icon/sprite" + valueFunc + ".svg#icon-like"}
-                  ></use>
-                </S.DivTrackTimeSvg>
-                <S.DivTrackTimeText
-                  className={"track__time-text time-text" + valueFunc}
-                >
-                  {!valueFunc ? "4:44" : ""}
-                </S.DivTrackTimeText>
-              </S.DivTrackTime>
-            </S.DivPlaylistTrack>
-          </S.DivPlaylistItem>
-
-          <S.DivPlaylistItem className="playlist__item">
-            <S.DivPlaylistTrack
-              className={"playlist__track track visible" + valueFunc}
-            >
-              <S.DivTrackTitle className={"track__title visible" + valueFunc}>
-                <S.DivTrackTitleImg className="track__title-image">
-                  <S.DivTrackTitleSvg className="track__title-svg" alt="music">
-                    <use
-                      xlinkHref={
-                        "img/icon/sprite" + valueFunc + ".svg#icon-note"
-                      }
-                    ></use>
-                  </S.DivTrackTitleSvg>
-                </S.DivTrackTitleImg>
-                <S.DivTrackTitleText className="track__title-text">
-                  <S.DivTrackTitleLink
-                    className={"track__title-link link" + valueFunc}
-                    href="http://"
-                  >
-                    {!valueFunc ? "Guilt" : ""}
-                    <S.DivTrackTitleSpan
-                      className={"track__title-span span-text" + valueFunc}
-                    ></S.DivTrackTitleSpan>
-                  </S.DivTrackTitleLink>
-                </S.DivTrackTitleText>
-              </S.DivTrackTitle>
-              <S.DivTrackAuthor className="track__author">
-                <S.DivTrackAuthorLink
-                  className={"track__author-link author" + valueFunc}
-                  href="http://"
-                >
-                  {!valueFunc ? "Nero" : ""}
-                </S.DivTrackAuthorLink>
-              </S.DivTrackAuthor>
-              <S.DivTrackAlbum className="track__album">
-                <S.DivTrackAlbumLink
-                  className={"track__album-link album" + valueFunc}
-                  href="http://"
-                >
-                  {!valueFunc ? "Welcome Reality" : ""}
-                </S.DivTrackAlbumLink>
-              </S.DivTrackAlbum>
-              <S.DivTrackTime className="track__time">
-                <S.DivTrackTimeSvg className="track__time-svg" alt="time">
-                  <use
-                    xlinkHref={"img/icon/sprite" + valueFunc + ".svg#icon-like"}
-                  ></use>
-                </S.DivTrackTimeSvg>
-                <S.DivTrackTimeText
-                  className={"track__time-text time-text" + valueFunc}
-                >
-                  {!valueFunc ? "4:44" : ""}
-                </S.DivTrackTimeText>
-              </S.DivTrackTime>
-            </S.DivPlaylistTrack>
-          </S.DivPlaylistItem>
-
-          <S.DivPlaylistItem className="playlist__item">
-            <S.DivPlaylistTrack
-              className={"playlist__track track visible" + valueFunc}
-            >
-              <S.DivTrackTitle className={"track__title visible" + valueFunc}>
-                <S.DivTrackTitleImg className="track__title-image">
-                  <S.DivTrackTitleSvg className="track__title-svg" alt="music">
-                    <use
-                      xlinkHref={
-                        "img/icon/sprite" + valueFunc + ".svg#icon-note"
-                      }
-                    ></use>
-                  </S.DivTrackTitleSvg>
-                </S.DivTrackTitleImg>
-                <S.DivTrackTitleText className="track__title-text">
-                  <S.DivTrackTitleLink
-                    className={"track__title-link link" + valueFunc}
-                    href="http://"
-                  >
-                    {!valueFunc ? "Guilt" : ""}
-                    <S.DivTrackTitleSpan
-                      className={"track__title-span span-text" + valueFunc}
-                    ></S.DivTrackTitleSpan>
-                  </S.DivTrackTitleLink>
-                </S.DivTrackTitleText>
-              </S.DivTrackTitle>
-              <S.DivTrackAuthor className="track__author">
-                <S.DivTrackAuthorLink
-                  className={"track__author-link author" + valueFunc}
-                  href="http://"
-                >
-                  {!valueFunc ? "Nero" : ""}
-                </S.DivTrackAuthorLink>
-              </S.DivTrackAuthor>
-              <S.DivTrackAlbum className="track__album">
-                <S.DivTrackAlbumLink
-                  className={"track__album-link album" + valueFunc}
-                  href="http://"
-                >
-                  {!valueFunc ? "Welcome Reality" : ""}
-                </S.DivTrackAlbumLink>
-              </S.DivTrackAlbum>
-              <S.DivTrackTime className="track__time">
-                <S.DivTrackTimeSvg className="track__time-svg" alt="time">
-                  <use
-                    xlinkHref={"img/icon/sprite" + valueFunc + ".svg#icon-like"}
-                  ></use>
-                </S.DivTrackTimeSvg>
-                <S.DivTrackTimeText
-                  className={"track__time-text time-text" + valueFunc}
-                >
-                  {!valueFunc ? "4:44" : ""}
-                </S.DivTrackTimeText>
-              </S.DivTrackTime>
-            </S.DivPlaylistTrack>
-          </S.DivPlaylistItem>
-
-          <S.DivPlaylistItem className="playlist__item">
-            <S.DivPlaylistTrack
-              className={"playlist__track track visible" + valueFunc}
-            >
-              <S.DivTrackTitle className={"track__title visible" + valueFunc}>
-                <S.DivTrackTitleImg className="track__title-image">
-                  <S.DivTrackTitleSvg className="track__title-svg" alt="music">
-                    <use
-                      xlinkHref={
-                        "img/icon/sprite" + valueFunc + ".svg#icon-note"
-                      }
-                    ></use>
-                  </S.DivTrackTitleSvg>
-                </S.DivTrackTitleImg>
-                <S.DivTrackTitleText className="track__title-text">
-                  <S.DivTrackTitleLink
-                    className={"track__title-link link" + valueFunc}
-                    href="http://"
-                  >
-                    {!valueFunc ? "Guilt" : ""}
-                    <S.DivTrackTitleSpan
-                      className={"track__title-span span-text" + valueFunc}
-                    ></S.DivTrackTitleSpan>
-                  </S.DivTrackTitleLink>
-                </S.DivTrackTitleText>
-              </S.DivTrackTitle>
-              <S.DivTrackAuthor className="track__author">
-                <S.DivTrackAuthorLink
-                  className={"track__author-link author" + valueFunc}
-                  href="http://"
-                >
-                  {!valueFunc ? "Nero" : ""}
-                </S.DivTrackAuthorLink>
-              </S.DivTrackAuthor>
-              <S.DivTrackAlbum className="track__album">
-                <S.DivTrackAlbumLink
-                  className={"track__album-link album" + valueFunc}
-                  href="http://"
-                >
-                  {!valueFunc ? "Welcome Reality" : ""}
-                </S.DivTrackAlbumLink>
-              </S.DivTrackAlbum>
-              <S.DivTrackTime className="track__time">
-                <S.DivTrackTimeSvg className="track__time-svg" alt="time">
-                  <use
-                    xlinkHref={"img/icon/sprite" + valueFunc + ".svg#icon-like"}
-                  ></use>
-                </S.DivTrackTimeSvg>
-                <S.DivTrackTimeText
-                  className={"track__time-text time-text" + valueFunc}
-                >
-                  {!valueFunc ? "4:44" : ""}
-                </S.DivTrackTimeText>
-              </S.DivTrackTime>
-            </S.DivPlaylistTrack>
-          </S.DivPlaylistItem>
-
-          <S.DivPlaylistItem className="playlist__item">
-            <S.DivPlaylistTrack
-              className={"playlist__track track visible" + valueFunc}
-            >
-              <S.DivTrackTitle className={"track__title visible" + valueFunc}>
-                <S.DivTrackTitleImg className="track__title-image">
-                  <S.DivTrackTitleSvg className="track__title-svg" alt="music">
-                    <use
-                      xlinkHref={
-                        "img/icon/sprite" + valueFunc + ".svg#icon-note"
-                      }
-                    ></use>
-                  </S.DivTrackTitleSvg>
-                </S.DivTrackTitleImg>
-                <S.DivTrackTitleText className="track__title-text">
-                  <S.DivTrackTitleLink
-                    className={"track__title-link link" + valueFunc}
-                    href="http://"
-                  >
-                    {!valueFunc ? "Guilt" : ""}
-                    <S.DivTrackTitleSpan
-                      className={"track__title-span span-text" + valueFunc}
-                    ></S.DivTrackTitleSpan>
-                  </S.DivTrackTitleLink>
-                </S.DivTrackTitleText>
-              </S.DivTrackTitle>
-              <S.DivTrackAuthor className="track__author">
-                <S.DivTrackAuthorLink
-                  className={"track__author-link author" + valueFunc}
-                  href="http://"
-                >
-                  {!valueFunc ? "Nero" : ""}
-                </S.DivTrackAuthorLink>
-              </S.DivTrackAuthor>
-              <S.DivTrackAlbum className="track__album">
-                <S.DivTrackAlbumLink
-                  className={"track__album-link album" + valueFunc}
-                  href="http://"
-                >
-                  {!valueFunc ? "Welcome Reality" : ""}
-                </S.DivTrackAlbumLink>
-              </S.DivTrackAlbum>
-              <S.DivTrackTime className="track__time">
-                <S.DivTrackTimeSvg className="track__time-svg" alt="time">
-                  <use
-                    xlinkHref={"img/icon/sprite" + valueFunc + ".svg#icon-like"}
-                  ></use>
-                </S.DivTrackTimeSvg>
-                <S.DivTrackTimeText
-                  className={"track__time-text time-text" + valueFunc}
-                >
-                  {!valueFunc ? "4:44" : ""}
-                </S.DivTrackTimeText>
-              </S.DivTrackTime>
-            </S.DivPlaylistTrack>
-          </S.DivPlaylistItem>
-
-          <S.DivPlaylistItem className="playlist__item">
-            <S.DivPlaylistTrack
-              className={"playlist__track track visible" + valueFunc}
-            >
-              <S.DivTrackTitle className={"track__title visible" + valueFunc}>
-                <S.DivTrackTitleImg className="track__title-image">
-                  <S.DivTrackTitleSvg className="track__title-svg" alt="music">
-                    <use
-                      xlinkHref={
-                        "img/icon/sprite" + valueFunc + ".svg#icon-note"
-                      }
-                    ></use>
-                  </S.DivTrackTitleSvg>
-                </S.DivTrackTitleImg>
-                <S.DivTrackTitleText className="track__title-text">
-                  <S.DivTrackTitleLink
-                    className={"track__title-link link" + valueFunc}
-                    href="http://"
-                  >
-                    {!valueFunc ? "Guilt" : ""}
-                    <S.DivTrackTitleSpan
-                      className={"track__title-span span-text" + valueFunc}
-                    ></S.DivTrackTitleSpan>
-                  </S.DivTrackTitleLink>
-                </S.DivTrackTitleText>
-              </S.DivTrackTitle>
-              <S.DivTrackAuthor className="track__author">
-                <S.DivTrackAuthorLink
-                  className={"track__author-link author" + valueFunc}
-                  href="http://"
-                >
-                  {!valueFunc ? "Nero" : ""}
-                </S.DivTrackAuthorLink>
-              </S.DivTrackAuthor>
-              <S.DivTrackAlbum className="track__album">
-                <S.DivTrackAlbumLink
-                  className={"track__album-link album" + valueFunc}
-                  href="http://"
-                >
-                  {!valueFunc ? "Welcome Reality" : ""}
-                </S.DivTrackAlbumLink>
-              </S.DivTrackAlbum>
-              <S.DivTrackTime className="track__time">
-                <S.DivTrackTimeSvg className="track__time-svg" alt="time">
-                  <use
-                    xlinkHref={"img/icon/sprite" + valueFunc + ".svg#icon-like"}
-                  ></use>
-                </S.DivTrackTimeSvg>
-                <S.DivTrackTimeText
-                  className={"track__time-text time-text" + valueFunc}
-                >
-                  {!valueFunc ? "4:44" : ""}
-                </S.DivTrackTimeText>
-              </S.DivTrackTime>
-            </S.DivPlaylistTrack>
-          </S.DivPlaylistItem>
-
-          <S.DivPlaylistItem className="playlist__item">
-            <S.DivPlaylistTrack
-              className={"playlist__track track visible" + valueFunc}
-            >
-              <S.DivTrackTitle className={"track__title visible" + valueFunc}>
-                <S.DivTrackTitleImg className="track__title-image">
-                  <S.DivTrackTitleSvg className="track__title-svg" alt="music">
-                    <use
-                      xlinkHref={
-                        "img/icon/sprite" + valueFunc + ".svg#icon-note"
-                      }
-                    ></use>
-                  </S.DivTrackTitleSvg>
-                </S.DivTrackTitleImg>
-                <S.DivTrackTitleText className="track__title-text">
-                  <S.DivTrackTitleLink
-                    className={"track__title-link link" + valueFunc}
-                    href="http://"
-                  >
-                    {!valueFunc ? "Guilt" : ""}
-                    <S.DivTrackTitleSpan
-                      className={"track__title-span span-text" + valueFunc}
-                    ></S.DivTrackTitleSpan>
-                  </S.DivTrackTitleLink>
-                </S.DivTrackTitleText>
-              </S.DivTrackTitle>
-              <S.DivTrackAuthor className="track__author">
-                <S.DivTrackAuthorLink
-                  className={"track__author-link author" + valueFunc}
-                  href="http://"
-                >
-                  {!valueFunc ? "Nero" : ""}
-                </S.DivTrackAuthorLink>
-              </S.DivTrackAuthor>
-              <S.DivTrackAlbum className="track__album">
-                <S.DivTrackAlbumLink
-                  className={"track__album-link album" + valueFunc}
-                  href="http://"
-                >
-                  {!valueFunc ? "Welcome Reality" : ""}
-                </S.DivTrackAlbumLink>
-              </S.DivTrackAlbum>
-              <S.DivTrackTime className="track__time">
-                <S.DivTrackTimeSvg className="track__time-svg" alt="time">
-                  <use
-                    xlinkHref={"img/icon/sprite" + valueFunc + ".svg#icon-like"}
-                  ></use>
-                </S.DivTrackTimeSvg>
-                <S.DivTrackTimeText
-                  className={"track__time-text time-text" + valueFunc}
-                >
-                  {!valueFunc ? "4:44" : ""}
-                </S.DivTrackTimeText>
-              </S.DivTrackTime>
-            </S.DivPlaylistTrack>
-          </S.DivPlaylistItem>
-
-          <S.DivPlaylistItem className="playlist__item">
-            <S.DivPlaylistTrack
-              className={"playlist__track track visible" + valueFunc}
-            >
-              <S.DivTrackTitle className={"track__title visible" + valueFunc}>
-                <S.DivTrackTitleImg className="track__title-image">
-                  <S.DivTrackTitleSvg className="track__title-svg" alt="music">
-                    <use
-                      xlinkHref={
-                        "img/icon/sprite" + valueFunc + ".svg#icon-note"
-                      }
-                    ></use>
-                  </S.DivTrackTitleSvg>
-                </S.DivTrackTitleImg>
-                <S.DivTrackTitleText className="track__title-text">
-                  <S.DivTrackTitleLink
-                    className={"track__title-link link" + valueFunc}
-                    href="http://"
-                  >
-                    {!valueFunc ? "Guilt" : ""}
-                    <S.DivTrackTitleSpan
-                      className={"track__title-span span-text" + valueFunc}
-                    ></S.DivTrackTitleSpan>
-                  </S.DivTrackTitleLink>
-                </S.DivTrackTitleText>
-              </S.DivTrackTitle>
-              <S.DivTrackAuthor className="track__author">
-                <S.DivTrackAuthorLink
-                  className={"track__author-link author" + valueFunc}
-                  href="http://"
-                >
-                  {!valueFunc ? "Nero" : ""}
-                </S.DivTrackAuthorLink>
-              </S.DivTrackAuthor>
-              <S.DivTrackAlbum className="track__album">
-                <S.DivTrackAlbumLink
-                  className={"track__album-link album" + valueFunc}
-                  href="http://"
-                >
-                  {!valueFunc ? "Welcome Reality" : ""}
-                </S.DivTrackAlbumLink>
-              </S.DivTrackAlbum>
-              <S.DivTrackTime className="track__time">
-                <S.DivTrackTimeSvg className="track__time-svg" alt="time">
-                  <use
-                    xlinkHref={"img/icon/sprite" + valueFunc + ".svg#icon-like"}
-                  ></use>
-                </S.DivTrackTimeSvg>
-                <S.DivTrackTimeText
-                  className={"track__time-text time-text" + valueFunc}
-                >
-                  {!valueFunc ? "4:44" : ""}
-                </S.DivTrackTimeText>
-              </S.DivTrackTime>
-            </S.DivPlaylistTrack>
-          </S.DivPlaylistItem>
-
-          <S.DivPlaylistItem className="playlist__item">
-            <S.DivPlaylistTrack
-              className={"playlist__track track visible" + valueFunc}
-            >
-              <S.DivTrackTitle className={"track__title visible" + valueFunc}>
-                <S.DivTrackTitleImg className="track__title-image">
-                  <S.DivTrackTitleSvg className="track__title-svg" alt="music">
-                    <use
-                      xlinkHref={
-                        "img/icon/sprite" + valueFunc + ".svg#icon-note"
-                      }
-                    ></use>
-                  </S.DivTrackTitleSvg>
-                </S.DivTrackTitleImg>
-                <S.DivTrackTitleText className="track__title-text">
-                  <S.DivTrackTitleLink
-                    className={"track__title-link link" + valueFunc}
-                    href="http://"
-                  >
-                    {!valueFunc ? "Guilt" : ""}
-                    <S.DivTrackTitleSpan
-                      className={"track__title-span span-text" + valueFunc}
-                    ></S.DivTrackTitleSpan>
-                  </S.DivTrackTitleLink>
-                </S.DivTrackTitleText>
-              </S.DivTrackTitle>
-              <S.DivTrackAuthor className="track__author">
-                <S.DivTrackAuthorLink
-                  className={"track__author-link author" + valueFunc}
-                  href="http://"
-                >
-                  {!valueFunc ? "Nero" : ""}
-                </S.DivTrackAuthorLink>
-              </S.DivTrackAuthor>
-              <S.DivTrackAlbum className="track__album">
-                <S.DivTrackAlbumLink
-                  className={"track__album-link album" + valueFunc}
-                  href="http://"
-                >
-                  {!valueFunc ? "Welcome Reality" : ""}
-                </S.DivTrackAlbumLink>
-              </S.DivTrackAlbum>
-              <S.DivTrackTime className="track__time">
-                <S.DivTrackTimeSvg className="track__time-svg" alt="time">
-                  <use
-                    xlinkHref={"img/icon/sprite" + valueFunc + ".svg#icon-like"}
-                  ></use>
-                </S.DivTrackTimeSvg>
-                <S.DivTrackTimeText
-                  className={"track__time-text time-text" + valueFunc}
-                >
-                  {!valueFunc ? "4:44" : ""}
-                </S.DivTrackTimeText>
-              </S.DivTrackTime>
-            </S.DivPlaylistTrack>
-          </S.DivPlaylistItem>
-
-          <S.DivPlaylistItem className="playlist__item">
-            <S.DivPlaylistTrack
-              className={"playlist__track track visible" + valueFunc}
-            >
-              <S.DivTrackTitle className={"track__title visible" + valueFunc}>
-                <S.DivTrackTitleImg className="track__title-image">
-                  <S.DivTrackTitleSvg className="track__title-svg" alt="music">
-                    <use
-                      xlinkHref={
-                        "img/icon/sprite" + valueFunc + ".svg#icon-note"
-                      }
-                    ></use>
-                  </S.DivTrackTitleSvg>
-                </S.DivTrackTitleImg>
-                <S.DivTrackTitleText className="track__title-text">
-                  <S.DivTrackTitleLink
-                    className={"track__title-link link" + valueFunc}
-                    href="http://"
-                  >
-                    {!valueFunc ? "Guilt" : ""}
-                    <S.DivTrackTitleSpan
-                      className={"track__title-span span-text" + valueFunc}
-                    ></S.DivTrackTitleSpan>
-                  </S.DivTrackTitleLink>
-                </S.DivTrackTitleText>
-              </S.DivTrackTitle>
-              <S.DivTrackAuthor className="track__author">
-                <S.DivTrackAuthorLink
-                  className={"track__author-link author" + valueFunc}
-                  href="http://"
-                >
-                  {!valueFunc ? "Nero" : ""}
-                </S.DivTrackAuthorLink>
-              </S.DivTrackAuthor>
-              <S.DivTrackAlbum className="track__album">
-                <S.DivTrackAlbumLink
-                  className={"track__album-link album" + valueFunc}
-                  href="http://"
-                >
-                  {!valueFunc ? "Welcome Reality" : ""}
-                </S.DivTrackAlbumLink>
-              </S.DivTrackAlbum>
-              <S.DivTrackTime className="track__time">
-                <S.DivTrackTimeSvg className="track__time-svg" alt="time">
-                  <use
-                    xlinkHref={"img/icon/sprite" + valueFunc + ".svg#icon-like"}
-                  ></use>
-                </S.DivTrackTimeSvg>
-                <S.DivTrackTimeText
-                  className={"track__time-text time-text" + valueFunc}
-                >
-                  {!valueFunc ? "4:44" : ""}
-                </S.DivTrackTimeText>
-              </S.DivTrackTime>
-            </S.DivPlaylistTrack>
-          </S.DivPlaylistItem>
+                    <S.DivTrackTitleImg className="track__title-image">
+                      <S.DivTrackTitleSvg
+                        className="track__title-svg"
+                        alt="music"
+                      >
+                        <use
+                          xlinkHref={
+                            "img/icon/sprite" + valueFunc + ".svg#icon-note"
+                          }
+                        ></use>
+                      </S.DivTrackTitleSvg>
+                    </S.DivTrackTitleImg>
+                    <S.DivTrackTitleText className="track__title-text">
+                      <S.DivTrackTitleLink
+                        className={"track__title-link link" + valueFunc}
+                      >
+                        {!valueFunc ? `${todo.name}` : ""}
+                        <S.DivTrackTitleSpan
+                          className={"track__title-span span-text" + valueFunc}
+                        ></S.DivTrackTitleSpan>
+                      </S.DivTrackTitleLink>
+                    </S.DivTrackTitleText>
+                  </S.DivTrackTitle>
+                  <S.DivTrackAuthor className="track__author">
+                    <S.DivTrackAuthorLink
+                      className={"track__author-link author" + valueFunc}
+                    >
+                      {!valueFunc ? `${todo.author}` : ""}
+                    </S.DivTrackAuthorLink>
+                  </S.DivTrackAuthor>
+                  <S.DivTrackAlbum className="track__album">
+                    <S.DivTrackAlbumLink
+                      className={"track__album-link album" + valueFunc}
+                    >
+                      {!valueFunc ? `${todo.album}` : ""}
+                    </S.DivTrackAlbumLink>
+                  </S.DivTrackAlbum>
+                  <S.DivTrackTime className="track__time">
+                    <S.DivTrackTimeSvg className="track__time-svg" alt="time">
+                      <use
+                        xlinkHref={
+                          "img/icon/sprite" + valueFunc + ".svg#icon-like"
+                        }
+                      ></use>
+                    </S.DivTrackTimeSvg>
+                    <S.DivTrackTimeText
+                      className={"track__time-text time-text" + valueFunc}
+                    >
+                      {!valueFunc
+                        ? `${
+                            "0" +
+                            ((todo.duration_in_seconds / 60) % 60).toFixed(2)
+                          }`
+                        : ""}
+                    </S.DivTrackTimeText>
+                  </S.DivTrackTime>
+                </S.DivPlaylistTrack>
+              </S.DivPlaylistItem>
+            );
+          })}
         </S.DivContentPlaylist>
-      </S.DivOverflowPlaylist>
+      </S.DivOverflowPlaylist></div>}
+      
     </S.DivCenterBlockContent>
   );
 }
 
-export default centerContent;
+export default CenterContent;

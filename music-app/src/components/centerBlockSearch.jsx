@@ -1,6 +1,6 @@
 import React from "react";
 import * as S from "./centerBlockSearch";
-function search() {
+function SearchBar() {
     return (
     <S.CenterBlockSearch className="centerblock__search search">
               <S.SearchSvg className="search__svg">
@@ -16,4 +16,4 @@ function search() {
     );
 }
 
-export default search;
+export default SearchBar;
