@@ -4,6 +4,7 @@ import * as S from "./bar";
 import { useRef, useState, useEffect } from "react";
 import ProgressBar from "./ProgressBar.jsx";
 import { getTodosId } from "../api.js";
+export let IdSvg;
 let i;
 
 export function nextTrack() {}
@@ -33,6 +34,7 @@ function CntrBar() {
   const handleStart = () => {
     audioRef.current.play();
     setIsPlaying(true);
+    IdSvg.logo = 'playing-dot';
   };
 
   nextTrack = () => {
@@ -53,6 +55,7 @@ function CntrBar() {
   const handleStop = () => {
     audioRef.current.pause();
     setIsPlaying(false);
+    IdSvg.logo = null;
   };
 
   clickParams = () => {
@@ -180,6 +183,7 @@ function CntrBar() {
     if (!(audioRef.current === null)) {
       audioRef.current.volume = currentVolume;
     }
+    IdSvg = Id;
   })
 
   return (

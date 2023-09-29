@@ -2,16 +2,11 @@ import React, { useEffect, useState } from "react";
 import * as S from "./cntrContent.js";
 import { getTodos } from "../api.js";
 import { clickParams, getId } from "./bar.jsx";
+import { IdSvg } from "./bar.jsx";
 export let valueFunc;
 let info;
 
 let error;
-
-function infoClick(e) {
-  info = e.id;
-  getId(info);
-  clickParams(false);
-}
 
 function timeGray() {
   const { useState, useEffect } = React;
@@ -28,7 +23,13 @@ function timeGray() {
 }
 
 function CenterContent() {
-
+  function infoClick(e) {
+    info = e.id;
+    getId(info);
+    clickParams(false);
+  }
+  const [logo, setLogo] = useState(null);
+  const [IdForSvg, setIdForSvg] = useState(null);
   const [todos, setTodos] = useState([]);
   useEffect(() => {
     getTodos().then((e) => {
@@ -39,6 +40,14 @@ function CenterContent() {
       }
     })
   }, []);
+
+
+  useEffect(() => {
+    setInterval(() => {
+      setIdForSvg(IdSvg.id);
+      setLogo(IdSvg.logo)
+    }, 500);
+  })
 
   timeGray();
   return (
@@ -74,16 +83,19 @@ function CenterContent() {
                     className={"track__title visible" + valueFunc}
                   >
                     <S.DivTrackTitleImg className="track__title-image">
+                    {IdForSvg === todo.id ? (<svg width="16px" height="16px" background-color="#b672ff" border-radius="8px" display= "block" className={logo ? 'playing-dot' : 'noneClass'}><path d="M0 8C0 3.58172 3.58172 0 8 0C12.4183 0 16 3.58172 16 8C16 12.4183 12.4183 16 8 16C3.58172 16 0 12.4183 0 8Z" fill="#B672FF"/></svg>)
+                        : (
                       <S.DivTrackTitleSvg
                         className="track__title-svg"
                         alt="music"
                       >
-                        <use
+                         <use
                           xlinkHref={
                             "img/icon/sprite" + valueFunc + ".svg#icon-note"
                           }
                         ></use>
                       </S.DivTrackTitleSvg>
+                      )}
                     </S.DivTrackTitleImg>
                     <S.DivTrackTitleText className="track__title-text">
                       <S.DivTrackTitleLink
