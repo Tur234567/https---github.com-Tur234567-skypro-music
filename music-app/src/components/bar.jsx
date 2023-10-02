@@ -6,6 +6,7 @@ import ProgressBar from "./ProgressBar.jsx";
 import { getTodosId } from "../api.js";
 import { useSelector } from "react-redux";
 export let IdSvg;
+export let IdSvgLogo;
 let i;
 
 export function nextTrack() {}
@@ -35,7 +36,7 @@ function CntrBar() {
   const handleStart = () => {
     audioRef.current.play();
     setIsPlaying(true);
-    IdSvg.logo = 'playing-dot';
+    IdSvgLogo = 'playing-dot';
   };
 
   nextTrack = () => {
@@ -56,7 +57,7 @@ function CntrBar() {
   const handleStop = () => {
     audioRef.current.pause();
     setIsPlaying(false);
-    IdSvg.logo = null;
+    IdSvgLogo = null;
   };
 
   clickParams = () => {
@@ -186,10 +187,6 @@ function CntrBar() {
       audioRef.current.volume = currentVolume;
     }
     IdSvg = Id;
-    const item = IdRender[Object.keys(IdRender)[Object.keys(IdRender).length - 1]]
-    if (item) {
-      console.log(item.content);
-    }
   })
 
   // Текущий трек и текущий плейлист должны храниться в Redux store.

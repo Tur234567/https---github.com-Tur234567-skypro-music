@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import * as S from "./cntrContent.js";
 import { getTodos } from "../api.js";
-import { clickParams, getId } from "./bar.jsx";
+import { IdSvgLogo, clickParams, getId } from "./bar.jsx";
 import { IdSvg } from "./bar.jsx";
 import { useDispatch } from "react-redux";
 import { addTodo } from "../store/actions/creators/todo.js";
@@ -30,7 +30,7 @@ function CenterContent() {
     getId(info);
     clickParams(false);
   }
-  const [logo, setLogo] = useState(null);
+  const [logo, setLogo] = useState(undefined);
   const [IdForSvg, setIdForSvg] = useState(null);
   const [todos, setTodos] = useState([]);
   useEffect(() => {
@@ -43,14 +43,14 @@ function CenterContent() {
     })
   }, []);
 
-  const dispatch = useDispatch();
 
+  const dispatch = useDispatch();
+  dispatch(addTodo(IdSvg));
   useEffect(() => {
     setInterval(() => {
       setIdForSvg(IdSvg.id);
-      setLogo(IdSvg.logo)
+      setLogo(IdSvgLogo)
     }, 500);
-    dispatch(addTodo(IdSvg));
   })
 
   timeGray();
