@@ -181,7 +181,7 @@ function CntrBar() {
   
   const [currentVolume, setCurrentVolume] = useState(0.1);
   const IdRender = useSelector((store) => store.todo.byIds);
-
+  const item = IdRender[Object.keys(IdRender)[Object.keys(IdRender).length - 1]]
   useEffect(() => {
     if (!(audioRef.current === null)) {
       audioRef.current.volume = currentVolume;
@@ -196,7 +196,7 @@ function CntrBar() {
       {isShow && (
         <S.BarDivContent className="bar__content">
           <S.BarAudio controls ref={audioRef}>
-            <source src={Id.track_file} type="audio/mpeg" />
+            <source src={item.content.track_file} type="audio/mpeg" />
           </S.BarAudio>
           <ProgressBar></ProgressBar>
           <S.BarDivPlayerBlock className="bar__player-block">
@@ -316,7 +316,7 @@ function CntrBar() {
                       }
                       href="http://"
                     >
-                      {!valueFunc ? `${Id.name}` : ""}
+                      {!valueFunc ? `${item.content.name}` : ""}
                     </S.BarTrackPlayAuthorLink>
                   </S.BarTrackPlayAuthor>
                   <S.BarTrackPlayAlbum className="track-play__album">
@@ -326,7 +326,7 @@ function CntrBar() {
                       }
                       href="http://"
                     >
-                      {!valueFunc ? `${Id.author}` : ""}
+                      {!valueFunc ? `${item.content.author}` : ""}
                     </S.BarTrackPlayAlbumLink>
                   </S.BarTrackPlayAlbum>
                 </S.BarPlayerTrackPlayContain>
