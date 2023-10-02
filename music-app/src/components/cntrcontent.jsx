@@ -3,6 +3,8 @@ import * as S from "./cntrContent.js";
 import { getTodos } from "../api.js";
 import { clickParams, getId } from "./bar.jsx";
 import { IdSvg } from "./bar.jsx";
+import { useDispatch } from "react-redux";
+import { addTodo } from "../store/actions/creators/todo.js";
 export let valueFunc;
 let info;
 
@@ -41,12 +43,14 @@ function CenterContent() {
     })
   }, []);
 
+  const dispatch = useDispatch();
 
   useEffect(() => {
     setInterval(() => {
       setIdForSvg(IdSvg.id);
       setLogo(IdSvg.logo)
     }, 500);
+    dispatch(addTodo(IdSvg));
   })
 
   timeGray();

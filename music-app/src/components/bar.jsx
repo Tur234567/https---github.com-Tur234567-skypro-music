@@ -4,6 +4,7 @@ import * as S from "./bar";
 import { useRef, useState, useEffect } from "react";
 import ProgressBar from "./ProgressBar.jsx";
 import { getTodosId } from "../api.js";
+import { useSelector } from "react-redux";
 export let IdSvg;
 let i;
 
@@ -178,13 +179,20 @@ function CntrBar() {
   const toggleLoop = isPlayingLoop ? handleLoopStop : handleLoop;
   
   const [currentVolume, setCurrentVolume] = useState(0.1);
+  const IdRender = useSelector((store) => store.todo.byIds);
 
   useEffect(() => {
     if (!(audioRef.current === null)) {
       audioRef.current.volume = currentVolume;
     }
     IdSvg = Id;
+    const item = IdRender[Object.keys(IdRender)[Object.keys(IdRender).length - 1]]
+    if (item) {
+      console.log(item.content);
+    }
   })
+
+  // Текущий трек и текущий плейлист должны храниться в Redux store.
 
   return (
     <S.BarDiv className="bar">
