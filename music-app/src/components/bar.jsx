@@ -67,11 +67,11 @@ function CntrBar() {
         setIsShow(false);
       }, 100);
     }
+    getTodosId(i).then((e) => {
+      setId(e);
+    })
     setTimeout(() => {
-      getTodosId(i).then((e) => {
-        setId(e);
-        setIsShow(true);
-      })
+      setIsShow(true);
     }, 200);
   }
 
