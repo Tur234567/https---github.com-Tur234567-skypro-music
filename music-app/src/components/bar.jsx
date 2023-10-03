@@ -44,13 +44,13 @@ function CntrBar() {
       toggle();
       setTimeout(() => {
         handleStart();
-      }, 500);
+      }, 1000);
     } 
     if (isPlayingRandom === false) {
       toggleNext();
       setTimeout(() => {
       handleStart();
-    }, 500);
+    }, 1000);
     } 
   }
 
@@ -72,7 +72,7 @@ function CntrBar() {
     })
     setTimeout(() => {
       setIsShow(true);
-    }, 200);
+    }, 300);
   }
 
   const toggleNext = () => {
