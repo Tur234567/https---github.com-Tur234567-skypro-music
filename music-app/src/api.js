@@ -55,3 +55,32 @@ export async function getLogin(email, password) {
   const data = response.json();
   return data;
 }
+
+export async function getToken(email, password) {
+  fetch("https://skypro-music-api.skyeng.tech/user/token/", {
+  method: "POST",
+  body: JSON.stringify({
+    email: "gleb@fokin.ru", // изменить
+    password: "gleb@fokin.ru", // изменить
+  }),
+  headers: {
+    // API требует обязательного указания заголовка content-type, так апи понимает что мы посылаем ему json строчку в теле запроса
+    "content-type": "application/json",
+  },
+})
+.then((response) => response.json())
+.then((json) => {
+  localStorage.setItem('tokenForLikeTrack', json.access);
+});
+}
+
+export async function likeTrack() {
+const response = await fetch("https://skypro-music-api.skyeng.tech/catalog/track/favorite/all/", {
+  method: "GET",
+  headers: {
+    Authorization: `Bearer ${localStorage.getItem('tokenForLikeTrack')}`,
+  },
+})
+const data = response.json();
+return data;
+}

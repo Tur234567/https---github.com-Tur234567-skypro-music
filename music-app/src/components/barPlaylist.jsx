@@ -24,7 +24,7 @@ export function getId(e) {
 
 export function clickParams() {}
   
-function CntrBar() {
+function CntrBarPlaylist() {
   const [isShow, setIsShow] = useState(false);
   const [Id, setId] = useState([]);
   const [isPlaying, setIsPlaying] = useState(false);
@@ -384,5 +384,5 @@ function CntrBar() {
   );
 }
 
-export default CntrBar;
+export default CntrBarPlaylist;
 

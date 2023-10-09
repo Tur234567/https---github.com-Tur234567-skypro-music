@@ -29,14 +29,16 @@ function MainNav() {
               <S.MenuNav className="nav__menu menu">
               <S.MenuList className="menu__list">
                 <S.MenuItem className="menu__item">
-                  <S.MenuLink href="#" className="menu__link">
+                  <Link to="/">
+                  <S.MenuLink className="menu__link">
                     Главное
                   </S.MenuLink>
+                  </Link>
                 </S.MenuItem>
                 <S.MenuItem className="menu__item">
                   <Link to="/playlist">
                   <S.MenuLink className="menu__link">
-                    Мой плейлист
+                    Мои треки
                   </S.MenuLink>
                   </Link>
                 </S.MenuItem>

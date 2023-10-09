@@ -182,3 +182,7 @@ body {
     transform: scale(1);
   }
 }
+
+.bar {
+  z-index: 9;
+}

@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from "react";
 import * as S from "./cntrContent.js";
-import { getTodos } from "../api.js";
+import { getTodos, likeTrack } from "../api.js";
 import { IdSvgLogo, clickParams, getId } from "./bar.jsx";
 import { IdSvg } from "./bar.jsx";
 import { useDispatch } from "react-redux";
 import { addTodo } from "../store/actions/creators/todo.js";
+import { toggleStatusPlaylist } from "../pages/playlist/index.jsx";
 export let valueFunc;
 let info;
-
 let error;
 
 function timeGray() {
@@ -17,7 +17,7 @@ function timeGray() {
   const toggleValue = () => falseValue(!value);
 
   useEffect(() => {
-    const timerId = setTimeout(toggleValue, 500);
+    const timerId = setTimeout(toggleValue, 1000);
     if (value === false) {
       clearTimeout(timerId);
     }
@@ -34,13 +34,21 @@ function CenterContent() {
   const [IdForSvg, setIdForSvg] = useState(null);
   const [todos, setTodos] = useState([]);
   useEffect(() => {
-    getTodos().then((e) => {
-      if (!(e[0].id === 8)) {
-        error = e;
+    setTimeout(() => {
+      if (toggleStatusPlaylist) {
+        likeTrack().then((e) => {
+          setTodos(e);
+        })
       } else {
-        setTodos(e);
+        getTodos().then((e) => {
+          if (!(e[0].id === 8)) {
+            error = e;
+          } else {
+            setTodos(e);
+          }
+        })
       }
-    })
+    }, 500);
   }, []);
 
 

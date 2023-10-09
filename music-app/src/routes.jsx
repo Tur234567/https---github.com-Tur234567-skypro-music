@@ -10,7 +10,6 @@ import { UserContext } from "./App.jsx";
 
 export const AppRoutes = () => {
     const theme = useContext(UserContext);
-    console.log(theme);
     return (
         <Routes>
             <Route path="/register" element={<Register />} />

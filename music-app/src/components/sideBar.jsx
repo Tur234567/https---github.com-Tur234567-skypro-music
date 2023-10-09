@@ -11,7 +11,6 @@ function toggleLocalStorage() {
 
 function SideBar() {
   const theme = useContext(UserContext);
-  console.log(theme);
     return (
         <S.BarMain className="main__sidebar sidebar">
         <S.DivPersonal className="sidebar__personal">

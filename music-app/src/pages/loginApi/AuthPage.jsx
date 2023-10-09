@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import * as S from "./AuthPage.styles";
 import { useEffect, useState } from "react";
-import { getLogin, register } from "../../api";
+import { getLogin, getToken, register } from "../../api";
 
 export let username = localStorage.getItem('username');
 
@@ -18,7 +18,10 @@ export default function AuthPage() {
       if (json.id) {
         localStorage.setItem('token', true);
         localStorage.setItem('username', json.username);
-        window.location.href = "/";
+        getToken(email, password);
+        setTimeout(() => {
+          window.location.href = "/";
+        }, 1000);
       } else {
         console.log(json);
         setError(json.detail ? json.detail : (json.password ? 'Пароль:' + json.password : 'Емейл:' + json.email));
@@ -32,7 +35,10 @@ export default function AuthPage() {
       if (json.id) {
         localStorage.setItem('token', true);
         localStorage.setItem('username', json.username);
-        window.location.href = "/";
+        getToken(email, password);
+        setTimeout(() => {
+          window.location.href = "/";
+        }, 1000);
       } else {
         console.log(json);
         if (!(repeatPassword === password)) {

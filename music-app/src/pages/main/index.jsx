@@ -5,7 +5,6 @@ import MainNav from "../../components/musicBlock.jsx";
 import SearchBar from "../../components/centerBlockSearch.jsx";
 import FilterBar from "../../components/centerBlockFilter.jsx";
 import CenterContent from "../../components/cntrcontent.jsx";
-import CntrBar from "../../components/bar.jsx";
 import SideBar from "../../components/sideBar.jsx";
 import FooterBar from "../../components/footer.jsx";
 import AuthPage from "../loginApi/AuthPage";
@@ -25,7 +24,6 @@ export const Main = () => {
           </S.DivMainCenterBlock>
           <SideBar/>
         </S.DivMain>
-        <CntrBar/>
         <FooterBar/>
       </S.DivContainer>
     </S.DivWrapper>
