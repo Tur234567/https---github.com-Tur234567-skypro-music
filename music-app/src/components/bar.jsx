@@ -85,7 +85,9 @@ function CntrBar() {
       setTimeout(() => {
         getTodosId(36).then((e) => {
           setId(e);
-          setIsShow(true);
+          setTimeout(() => {
+            setIsShow(true);
+          }, 300);
         })
       }, 200);
     } else {
@@ -97,7 +99,9 @@ function CntrBar() {
         i = Id.id + 1
         getTodosId(i).then((e) => {
             setId(e);
-            setIsShow(true);
+            setTimeout(() => {
+              setIsShow(true);
+            }, 300);
         })
       }, 200);
     }
@@ -114,7 +118,9 @@ function CntrBar() {
       setTimeout(() => {
         getTodosId(8).then((e) => {
           setId(e);
-          setIsShow(true);
+          setTimeout(() => {
+            setIsShow(true);
+          }, 300);
         })
       }, 200);
     } else {
@@ -128,7 +134,9 @@ function CntrBar() {
         getTodosId(i - 1).then((e) => {
           i = i - 1;
           setId(e);
-          setIsShow(true);
+          setTimeout(() => {
+            setIsShow(true);
+          }, 300);
         })
       }, 200);
     }
@@ -144,7 +152,9 @@ function CntrBar() {
     setTimeout(() => {
       getTodosId(getRandomIntInclusive(8,36)).then((e) => {
         setId(e);
-        setIsShow(true);
+        setTimeout(() => {
+          setIsShow(true);
+        }, 200);
       })
     }, 200);
   }

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { AppRoutes } from "./routes";
 import { username } from "./pages/loginApi/AuthPage";
 import CntrBar from "./components/bar.jsx";
@@ -9,7 +9,7 @@ export let setTodosPlaylist;
 function App() {
     return (
       <div>
-        <CntrBar/>
+      <CntrBar/>
       <UserContext.Provider value={username}>
       <AppRoutes/>
       </UserContext.Provider>

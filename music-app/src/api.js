@@ -60,8 +60,8 @@ export async function getToken(email, password) {
   fetch("https://skypro-music-api.skyeng.tech/user/token/", {
   method: "POST",
   body: JSON.stringify({
-    email: "gleb@fokin.ru", // изменить
-    password: "gleb@fokin.ru", // изменить
+    email,
+    password,
   }),
   headers: {
     // API требует обязательного указания заголовка content-type, так апи понимает что мы посылаем ему json строчку в теле запроса
@@ -83,4 +83,26 @@ const response = await fetch("https://skypro-music-api.skyeng.tech/catalog/track
 })
 const data = response.json();
 return data;
+}
+
+export async function likedTrack(e) {
+  const response = await fetch(`https://skypro-music-api.skyeng.tech/catalog/track/${e.id}/favorite/`, {
+    method: "POST",
+    headers: {
+      Authorization: `Bearer ${localStorage.getItem('tokenForLikeTrack')}`,
+    },
+  })
+  const data = response.json();
+  return data;
+}
+
+export async function disLikedTrack(e) {
+  const response = await fetch(`https://skypro-music-api.skyeng.tech/catalog/track/${e.id}/favorite/`, {
+    method: "DELETE",
+    headers: {
+      Authorization: `Bearer ${localStorage.getItem('tokenForLikeTrack')}`,
+    },
+  })
+  const data = response.json();
+  return data;
 }
