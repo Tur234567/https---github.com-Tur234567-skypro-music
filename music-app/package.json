@@ -1,29 +1,47 @@
 {
-  "name": "music-app",
-  "version": "0.1.0",
+  "name": "react_template",
   "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "react-scripts build",
+    "lint": "eslint src --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
+    "preview": "vite preview",
+    "postbuild": "react-snap",
+    "prebuild": "cpx \"./index.html\" \"./public\""
+  },
   "dependencies": {
-    "@testing-library/jest-dom": "^5.17.0",
-    "@testing-library/react": "^13.4.0",
-    "@testing-library/user-event": "^13.5.0",
+    "@bunt/assert": "^0.29.18",
+    "@bunt/is": "^0.29.18",
+    "@bunt/type": "^0.29.16",
+    "@emotion/react": "^11.10.6",
+    "@emotion/styled": "^11.10.6",
+    "@reduxjs/toolkit": "^1.9.5",
+    "axios": "^1.5.0",
+    "emotion-reset": "^3.0.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-router-dom": "^6.15.0",
-    "react-scripts": "^2.1.3",
-    "styled-components": "^6.0.7",
-    "web-vitals": "^2.1.4"
+    "react-helmet": "^6.1.0",
+    "react-hook-form": "^7.46.1",
+    "react-redux": "^8.1.2",
+    "react-router-dom": "^6.10.0",
+    "react-scripts": "^5.0.1",
+    "react-snap": "^1.23.0"
   },
-  "scripts": {
-    "start": "react-scripts --openssl-legacy-provider start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
-  },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
+  "devDependencies": {
+    "@types/react": "^18.0.28",
+    "@types/react-dom": "^18.0.11",
+    "@types/react-helmet": "^6.1.6",
+    "@typescript-eslint/eslint-plugin": "^5.57.1",
+    "@typescript-eslint/parser": "^5.57.1",
+    "@vitejs/plugin-react": "^4.0.0",
+    "cpx": "^1.5.0",
+    "eslint": "^8.38.0",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "eslint-plugin-react-refresh": "^0.3.4",
+    "typescript": "^5.0.2",
+    "vite": "^4.3.2"
   },
   "browserslist": {
     "production": [
